@@ -1,0 +1,20 @@
+------------------------
+TABLE: demoChartJSTable1
+------------------------
+FIELD NAME     FIELD TYPE      SIZE    DESCRIPTION
+===========    ============    ====    ===========
+ID             AutoNumber      4                  
+EventDate      Date/Time       8                  
+EventValue     Long Integer    4                  
+
+
+------------------------
+TABLE: demoChartJSTable2
+------------------------
+FIELD NAME     FIELD TYPE      SIZE    DESCRIPTION
+===========    ============    ====    ===========
+ID             AutoNumber      4                  
+EventDate      Date/Time       8                  
+EventValue     Long Integer    4                  
+
+

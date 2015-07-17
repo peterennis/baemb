@@ -1,0 +1,94 @@
+>>>demoChartJSQuery1
+              Name          demoChartJSQuery1
+              Owner         admin
+              UserName      admin
+              Permissions    1048575 
+              AllPermissions               1048575 
+              Container     Tables
+              DateCreated   2/22/2015
+              LastUpdated   2/23/2015
+              RecordLocks    0 
+              ODBCTimeout    60 
+              OrderByOn     False
+              Orientation    0 
+              DefaultView    2 
+              FilterOnLoad  False
+              OrderByOnLoad True
+              DOL           Track name AutoCorrect info is ON!
+              PublishToWeb   1 
+>>>demoChartJSQuery2
+              Name          demoChartJSQuery2
+              Owner         admin
+              UserName      admin
+              Permissions    1048575 
+              AllPermissions               1048575 
+              Container     Tables
+              DateCreated   2/22/2015
+              LastUpdated   2/23/2015
+              RecordLocks    0 
+              ODBCTimeout    60 
+              OrderByOn     False
+              Orientation    0 
+              DefaultView    2 
+              FilterOnLoad  False
+              OrderByOnLoad True
+              DOL           Track name AutoCorrect info is ON!
+              PublishToWeb   1 
+>>>demoChartJSTable1
+              Name          demoChartJSTable1
+              Owner         admin
+              UserName      admin
+              Permissions    1048319 
+              AllPermissions               1048319 
+              Container     Tables
+              DateCreated   2/22/2015
+              LastUpdated   2/23/2015
+              Orientation    0 
+              OrderByOn     False
+              NameMap       Track name AutoCorrect info is ON!
+              DefaultView    2 
+              DisplayViewsOnSharePointSite               1 
+              TotalsRow     False
+              FilterOnLoad  False
+              OrderByOnLoad True
+              HideNewField  False
+              BackTint       100 
+              BackShade      100 
+              ThemeFontIndex               1 
+              AlternateBackThemeColorIndex               1 
+              AlternateBackTint            100 
+              AlternateBackShade           95 
+              ReadOnlyWhenDisconnected    False
+              DatasheetGridlinesThemeColorIndex          3 
+              DatasheetForeThemeColorIndex               0 
+              PublishToWeb   1 
+              GUID          DF-44-5E-2D-67-3A-4A-84
+>>>demoChartJSTable2
+              Name          demoChartJSTable2
+              Owner         admin
+              UserName      admin
+              Permissions    1048319 
+              AllPermissions               1048319 
+              Container     Tables
+              DateCreated   2/22/2015
+              LastUpdated   2/23/2015
+              Orientation    0 
+              OrderByOn     False
+              NameMap       Track name AutoCorrect info is ON!
+              DefaultView    2 
+              DisplayViewsOnSharePointSite               1 
+              TotalsRow     False
+              FilterOnLoad  False
+              OrderByOnLoad True
+              HideNewField  False
+              BackTint       100 
+              BackShade      100 
+              ThemeFontIndex               1 
+              AlternateBackThemeColorIndex               1 
+              AlternateBackTint            100 
+              AlternateBackShade           95 
+              ReadOnlyWhenDisconnected    False
+              DatasheetGridlinesThemeColorIndex          3 
+              DatasheetForeThemeColorIndex               0 
+              PublishToWeb   1 
+              GUID          14-38-32-35-07-E9-45-90

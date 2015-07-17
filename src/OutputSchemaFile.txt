@@ -1,0 +1,34 @@
+Public Sub CreateTheDb()
+
+Dim strSQL As String
+On Error GoTo ErrorTrap
+
+'Local Table
+
+strSQL="CREATE TABLE [demoChartJSTable1] ([ID] Counter,[EventDate] DateTime,[EventValue] Long )"
+Currentdb.Execute strSQL
+
+strSQL="CREATE INDEX [ID] ON [demoChartJSTable1] ([EventValue]) "
+Currentdb.Execute strSQL
+
+strSQL="CREATE UNIQUE INDEX [PrimaryKey] ON [demoChartJSTable1] ([EventValue])  WITH PRIMARY DISALLOW NULL "
+Currentdb.Execute strSQL
+
+'Local Table
+
+strSQL="CREATE TABLE [demoChartJSTable2] ([ID] Counter,[EventDate] DateTime,[EventValue] Long )"
+Currentdb.Execute strSQL
+
+strSQL="CREATE INDEX [ID] ON [demoChartJSTable2] ([EventValue]) "
+Currentdb.Execute strSQL
+
+strSQL="CREATE UNIQUE INDEX [PrimaryKey] ON [demoChartJSTable2] ([EventValue])  WITH PRIMARY DISALLOW NULL "
+Currentdb.Execute strSQL
+
+'Access 2010 - Compact And Repair
+SendKeys "%F{END}{ENTER}%F{TAB}{TAB}{ENTER}", False
+Exit Sub
+ErrorTrap:
+MsgBox "Erl=" & vbCrLf & "Err.Number=" & Err.Number & vbCrLf & "Err.Description=" & Err.Description
+
+End Sub

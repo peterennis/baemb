@@ -1,0 +1,105 @@
+ÿþVersion =20
+VersionRequired =20
+PublishOption =1
+Begin Form
+    PopUp = NotDefault
+    RecordSelectors = NotDefault
+    NavigationButtons = NotDefault
+    DividingLines = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridX =24
+    GridY =24
+    DatasheetFontHeight =11
+    ItemSuffix =1
+    Left =4440
+    Top =2775
+    Right =17385
+    Bottom =13200
+    DatasheetGridlinesColor =14806254
+    RecSrcDt = Begin
+        0xd82417c45489e440
+    End
+    GUID = Begin
+        0xa0e143b30faf9e4480e3dc21d1109f46
+    End
+    NameMap = Begin
+    End
+    Caption ="ChartJS Popup"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="Calibri"
+    FilterOnLoad =0
+    ShowPageMargins =0
+    DisplayOnSharePointSite =1
+    DatasheetAlternateBackColor =15921906
+    DatasheetGridlinesColor12 =0
+    FitToScreen =1
+    DatasheetBackThemeColorIndex =1
+    BorderThemeColorIndex =3
+    ThemeFontIndex =1
+    ForeThemeColorIndex =0
+    AlternateBackThemeColorIndex =1
+    AlternateBackShade =95.0
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            FontSize =11
+            FontName ="Calibri"
+            ThemeFontIndex =1
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =0
+            BorderTint =50.0
+            ForeThemeColorIndex =0
+            ForeTint =50.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin Section
+            Height =2160
+            Name ="Detail"
+            GUID = Begin
+                0xfef8a74003a6484a825e602e1d5197a4
+            End
+            AlternateBackColor =15921906
+            AlternateBackThemeColorIndex =1
+            AlternateBackShade =95.0
+            BackThemeColorIndex =1
+            Begin
+                Begin Label
+                    OverlapFlags =85
+                    Left =300
+                    Top =480
+                    Width =6360
+                    Height =960
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lbl"
+                    Caption ="Label here..."
+                    GUID = Begin
+                        0x672d4f56e17e024da652772722814be6
+                    End
+                    GridlineColor =10921638
+                    LayoutCachedLeft =300
+                    LayoutCachedTop =480
+                    LayoutCachedWidth =6660
+                    LayoutCachedHeight =1440
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Form_Open(Cancel As Integer)
+  Me.lbl.Caption = Nz(Me.OpenArgs, "(no data supplied via OpenArgs)")
+End Sub

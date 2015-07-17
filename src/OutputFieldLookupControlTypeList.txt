@@ -1,0 +1,15 @@
+demoChartJSTable1
+              ID             0            
+              EventDate      0            
+              EventValue     109          TextBox
+demoChartJSTable2
+              ID             109          TextBox
+              EventDate      109          TextBox
+              EventValue     109          TextBox
+Count of Check box = 0
+Count of Text box  = 4
+Count of List box  = 0
+Count of Combo box = 0
+Count of Else      = 2
+Count of Display Controls = 4
+Count of All Fields = 4

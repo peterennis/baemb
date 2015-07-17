@@ -1,0 +1,12 @@
+<<<demoChartJSQuery1>>>
+SELECT Month(EventDate) AS EventMonth, SUM(EventValue) AS TotalPerMonth
+FROM demoChartJSTable1
+GROUP BY Month(EventDate)
+ORDER BY Month(EventDate);
+
+<<<demoChartJSQuery2>>>
+SELECT Month(EventDate) AS EventMonth, SUM(EventValue) AS TotalPerMonth
+FROM demoChartJSTable2
+GROUP BY Month(EventDate)
+ORDER BY Month(EventDate);
+
