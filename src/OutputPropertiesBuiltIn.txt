@@ -238,3 +238,8 @@ Type: dbLong
 Value: 0
 Inherited: False;
 ---
+Name: Track Name AutoCorrect Info
+Type: dbLong
+Value: 0
+Inherited: False;
+---
