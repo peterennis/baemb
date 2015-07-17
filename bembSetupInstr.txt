@@ -1,0 +1,162 @@
+
+
+
+
+BembObject
+	Public Methods
+		Eval(CodeToRun As String, optional postFunction As String = "") As String
+		Init(SubformContainer As Access.SubForm, URL as string) As Boolean
+		EventReceived()	(public only for calling by EventHandler, not for user consumption)
+		AddEventHandler (ElementSelector, jsEventName, ReceivingObject, ReceivingMethodName, jsPostEventFunction, jsOmitElementSelectorQuoteWrap)
+		ExecScript()
+		LoadScriptFileToString(scriptFilePath)
+		GetSnippet(SnippetName) As String
+	Public Events
+		Initialized()
+		
+	Public Properties
+		jQueryNativeVersion
+		jQueryBembVersion (NYI)
+		LastData string, retrieve the last JS data that was posted by an event or function
+		AllowScroll default False, must be set before initializing - helps keep scrollbars from appearing
+		Document, returns the HTMLDocument object of the hosted page, only available after initalization
+		SnippetStartQualifier, the qualifier to find for a snippet start
+		SnippetEndQualifier, the qualifier to find for a snippet end
+		SnippetsPath, path to the snippets file, must be set before calling GetSnippet(), if used, default CurrentProject.Path & "\bembSnippets.js"
+		
+	
+	
+
+BembFramework, posting and retrieving data
+
+BembFramework, event handling
+	We subscribe to all JS events via BembObject.AddEventHandler, however only one event is actually linked
+	between the JS and VBA.  On initialization, one element is added to the hosted DOM (jsvb-event-element)
+	which is the one that the VBA core EventHandler is set up to subscribe to.  This is the only direct
+	event interaction between the JS and the VBA.
+	
+	When the dev adds via AddEventHandler, and EventID is created, the receiving object and method are logged
+	and a javascript function is called using
+	that EventID, and places an event listener on the specified DOM objects.  This event listener is captured
+	in the bemb js framework, at which point the details of the event are written into some global variables.
+	One the event information is written into the global variables, the js bemb framework then calls the Click
+	event of the jsvb-event-element (our dedicated event bridge), which in turn fires the event in VBA.
+	
+	VBA receives this core event, then reads the event information from the global variables that the js bemb
+	framework wrote.  The VBA project also looks up it's internal JS Events log based on the ID it finds, and
+	proceeds to call the correct VBA Object.Method.
+	
+	Luckily, this entire process is NOT async, which means that event info won't be overwritten even in the case
+	of quick firing succession events.  JS doesn't continue to run (and raise more events) until after the VBA
+	process returns control.
+	
+	
+	
+	
+BembSubform:
+	despite numerous public methods/properties, users should not interact with this directly.  The BembObject is
+	the main user/dev interaction object, which in turn handles the subform.
+	
+jQuery:
+	Currently, the bemb jQuery version is whatever is set up on the actual page.  There's no handling for our
+	own versions (and, for that matter, not much in the way of handling cases where jQuery might not be present).
+	The thinking behind this is that we'd be embedded custom made "applets" and as such we'd be the designer of
+	the hosted content and could include it there as necessary.  Future versions may expand upon this.
+	
+	
+	
+	
+
+
+1) Import the following modules/objects
+	Form_WebBrowserHost
+	WebBrowserHost
+	WebBrowserEventHandler
+	
+1.1) optionally import the BembRegUpdate module for handling registry values
+
+1.2) ensure the "Microsoft Internet Controls" library is present in your VBA references (this is added by default when you add a Web Browser Control to your form, but won't be added by import the objects)
+1.2.1) note: this is not strictly required, see here for details on what it does and how you can do it without this
+	
+2) In the form you'll use this in, do the following:
+
+	A) add blank subform control, name it whatever (we'll use subBEmbHost for this example)
+	B) add the following lines of code to your module's declaration portion:
+	
+	
+		Option Compare Database
+		Option Explicit
+		
+		Private WithEvents bembHost As WebBrowserHost
+		
+	C) Add a subdirectory for your bemb files (this will include the downloaded bemb.js file and can also include any hosted projects)
+		
+		
+	C) add the following Form_Load and Form_Unload procedures:
+	
+		Private Sub Form_Load()
+			Set bembHost = New WebBrowserHost
+			bembHost.Init Me.subBEmbHost, CurrentProject.Path & "\bembHosted\yourFile.html"
+		End Sub
+		
+		Private Sub Form_Unload(Cancel As Integer)
+			If Not bembHost Is Nothing Then Set bembHost = Nothing
+		End Sub
+		
+	D) how to execute JavaScript in the bembHosted page:
+	
+		Debug.Print bembHost.Eval("alert(5+6;)")
+		Debug.Print bembHost.Eval("testJSFunction(5, 9)", "mjvbData+=15;")
+		
+	E) how to get JS events handled by VBA
+	
+		a)	use the bembHost.AddEventHandler method to subscribe to the event.  It takes 4 arguments (+2 optional ones)
+			i.		ElementSelector: jQuery style selector of the element(s) whose event you want to subscribe to.
+			ii.		EventName: name of the JavaScript event for which you will subscribe
+			iii.	ReceivingObject: reference of the object (eg, your form) that is subscribing (usually just pass Me to it)
+			iv.		ReceivingMethodName: name of the Public Sub that will be called when this event fires
+			(optional)
+			v:		jsFunction: a javascript function or code to run before the event is pushed to VBA (useful for converting data in JS before it hits VBA)
+			vi:		OmitWrappingQuotesForSelector: probably put in so I could stuff a variable into the selector instead of just literal strings... honestly not quite sure!
+			
+			
+		b) Create the event procedure sub accordingly, using the Public Sub syntax
+		
+		c) example #1: capture and report mouse move over the canvas element
+		
+			Option Compare Database
+			Option Explicit
+			
+			Private bembHost As WebBrowserHost
+			
+			Private Sub Form_Load()
+			  Set bembHost = New WebBrowserHost
+			  bembHost.Init Me.bembSubform, CurrentProject.Path & "\bembHosted\charting.html"
+			End Sub
+			
+			Private Sub Form_Unload(Cancel As Integer)
+				If Not bembHost Is Nothing Then Set bembHost = Nothing
+			End Sub
+			
+			Private Sub bembHost_Initialized()
+				bembHost.AddEventHandler _
+						"#canvas", _
+						"mousemove", _
+						Me, _
+						"bhCanvas_MouseMove", _
+						"mjvbData = event.clientX + ', ' + event.clientY;"
+			End Sub
+			
+			Public Sub bhCanvas_MouseMove()
+				Dim s As String
+				s = bembHost.GetLastData()	'retrieve the last thing entered into the mjvbData variable
+											'in our case this was the X,Y coordinates from the jsFunction optional argument for AddEventHandler
+				Debug.Print s
+			End Sub
+			
+		
+		
+		
+		
+		
+	
