@@ -27,8 +27,6 @@ Begin Form
     GUID = Begin
         0xd9ebe934fb4e8640a01cf32118f82d5c
     End
-    NameMap = Begin
-    End
     Caption ="ChartJS Demo"
     DatasheetFontName ="Calibri"
     OnLoad ="[Event Procedure]"
