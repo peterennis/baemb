@@ -2,33 +2,33 @@ Option Compare Database
 Option Explicit
 
 ' Constants for settings of "Bemb"
-Public Const gstrPROJECT_BEMB As String = "Bemb"
-Private Const mstrVERSION_BEMB As String = "0.5.0.0"
-Private Const mstrDATE_BEMB As String = "July 17, 2015"
+Public Const gstrPROJECT_BAEMB As String = "baemb"
+Private Const mstrVERSION_BAEMB As String = "0.5.0.1"
+Private Const mstrDATE_BAEMB As String = "July 17, 2015"
 
-Public Const THE_SOURCE_FOLDER = "C:\ae\bemb\src\"
-Public Const THE_BACK_END_SOURCE_FOLDER = "C:\ae\bemb\srcbe\"
-Public Const THE_XML_FOLDER = "C:\ae\bemb\src\xml\"
-Public Const THE_BACK_END_XML_FOLDER = "C:\ae\bemb\srcbe\xml\"
+Public Const THE_SOURCE_FOLDER = "C:\ae\baemb\src\"
+Public Const THE_BACK_END_SOURCE_FOLDER = "C:\ae\baemb\srcbe\"
+Public Const THE_XML_FOLDER = "C:\ae\baemb\src\xml\"
+Public Const THE_BACK_END_XML_FOLDER = "C:\ae\baemb\srcbe\xml\"
 Public Const THE_BACK_END_DB1 = "NONE"
 '
 
 Public Function getMyVersion() As String
     On Error GoTo 0
-    getMyVersion = mstrVERSION_BEMB
+    getMyVersion = mstrVERSION_BAEMB
 End Function
 
 Public Function getMyDate() As String
     On Error GoTo 0
-    getMyDate = mstrDATE_BEMB
+    getMyDate = mstrDATE_BAEMB
 End Function
 
 Public Function getMyProject() As String
     On Error GoTo 0
-    getMyProject = gstrPROJECT_BEMB
+    getMyProject = gstrPROJECT_BAEMB
 End Function
 
-Public Sub BEMB_EXPORT(Optional ByVal varDebug As Variant)
+Public Sub BAEMB_EXPORT(Optional ByVal varDebug As Variant)
 
     On Error GoTo PROC_ERR
 
