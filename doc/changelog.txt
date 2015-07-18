@@ -1,0 +1,13 @@
+bemb.v0.5.0.1, jleach@dymeng, 2015-07-17
+	
+	- No changes to core framework, updates for demo only.
+	
+	- Added startup code to demoChartJS form to check the registry for the required setting.
+	- Added BembRegistry.IsIEEmulationModeSet() function.
+	- Updated snippets.js.ChartClickHandlerSnippet to check for null point (when empty chart space is clicked)
+	- Added handling to demoChartJS.bembEvent_ChartClick() to see if a value was supplied
+	
+	
+	
+bemb.v0.5.0.0, 2015-02-27, jleach@dymeng
+	- initial release

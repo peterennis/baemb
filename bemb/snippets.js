@@ -4,7 +4,12 @@ Canvas.height = window.innerHeight;
 
 /// StartSnippet: ChartClickHandlerSnippet
 var points = window.myLine.getPointsAtEvent(event);
-bembData = points[0].value + ', ' + points[1].value;
+if (points[0] != null) {
+	bembData = points[0].value + ', ' + points[1].value;
+} else {
+	bembData = "";
+}
+
 
 /// StartSnippet: RefreshChartDataBuild
 refreshChart({

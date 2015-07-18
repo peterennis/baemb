@@ -20,14 +20,42 @@ Const IE_EMULATION_VALUE = "msaccess.exe"
 Const IE_EMULATION_MODE_11 = 11999
 
 
-Public Function SetIEEmulationMode(IEmode As IEEmulationMode, Optional Silent As Boolean = False) As Boolean
+Public Function IsIEEmulationModeSet(IEMode As IEEmulationMode) As Boolean
+
+  Dim IEModeValue As Long
+  Dim lTemp As Long
+  
+  Select Case IEMode
+    Case IEEmulationMode.IEEmulation11:   IEModeValue = 11999
+    Case Else:                            Err.Raise vbObjectError, , "Emulation Mode Enum not recognized"
+  End Select
+
+  If Not Registry.KeyExists(HKCU, IE_EMULATION_KEY) Then
+    IsIEEmulationModeSet = False
+    Exit Function
+  End If
+  
+  If Not Registry.ValueExists(HKCU, IE_EMULATION_KEY, IE_EMULATION_VALUE, REG_DWORD) Then
+    IsIEEmulationModeSet = False
+    Exit Function
+  End If
+  
+  If Registry.GetDWORDValue(HKCU, IE_EMULATION_KEY, IE_EMULATION_VALUE) = IEModeValue Then
+    IsIEEmulationModeSet = True
+  Else
+    IsIEEmulationModeSet = False
+  End If
+
+End Function
+
+Public Function SetIEEmulationMode(IEMode As IEEmulationMode, Optional Silent As Boolean = False) As Boolean
 
   'check the keys and values, try to create if it doesn't exist, etc etc
 
   Dim IEModeValue As Long
   Dim lTemp As Long
   
-  Select Case IEmode
+  Select Case IEMode
     Case IEEmulationMode.IEEmulation11:   IEModeValue = 11999
     Case Else:                            Err.Raise vbObjectError, , "Emulation Mode Enum not recognized"
   End Select

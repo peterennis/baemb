@@ -17,8 +17,8 @@ Begin Form
     ItemSuffix =7
     Left =195
     Top =255
-    Right =7575
-    Bottom =8340
+    Right =10230
+    Bottom =10245
     DatasheetGridlinesColor =14806254
     OnUnload ="[Event Procedure]"
     RecSrcDt = Begin
@@ -27,7 +27,10 @@ Begin Form
     GUID = Begin
         0xd9ebe934fb4e8640a01cf32118f82d5c
     End
+    NameMap = Begin
+    End
     Caption ="ChartJS Demo"
+    OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
     OnLoad ="[Event Procedure]"
     FilterOnLoad =0
@@ -227,7 +230,22 @@ Option Explicit
 Private WithEvents bemb As BembObject
 Attribute bemb.VB_VarHelpID = -1
 
-
+Private Sub Form_Open(Cancel As Integer)
+  If Not BembRegistry.IsIEEmulationModeSet(IEEmulation11) Then
+    If MsgBox("IE Emulation Mode registry value not set... would you like the application to set it now?", vbOKCancel + vbQuestion, "browseEmbed") = vbCancel Then
+      Cancel = True
+      Exit Sub
+    Else
+      If Not BembRegistry.SetIEEmulationMode(IEEmulation11) Then
+        Cancel = True
+      Else
+        MsgBox "Registry successfully updated.  Please restart Access for this to take effect.", vbInformation, "browseEmbed"
+        Cancel = True
+        Application.Quit
+      End If
+    End If
+  End If
+End Sub
 
 
 Private Sub bemb_Initialized()
@@ -264,7 +282,9 @@ Private Sub addChartClickEventHandler()
 End Sub
 
 Public Sub bembEvent_ChartClick()
-  DoCmd.OpenForm "demoChartJSPopup", , , , , acDialog, "The values of the clicked point were " & bemb.LastData
+  If bemb.LastData <> "" Then
+    DoCmd.OpenForm "demoChartJSPopup", , , , , acDialog, "The values of the clicked point were " & bemb.LastData
+  End If
 End Sub
 
 
@@ -396,6 +416,8 @@ Private Sub Form_Load()
   
   bemb.Init Me.subChart, CurrentProject.Path & "\bemb\demoChartJS\charting.html"
 End Sub
+
+
 
 Private Sub Form_Unload(Cancel As Integer)
   If Not bemb Is Nothing Then Set bemb = Nothing
