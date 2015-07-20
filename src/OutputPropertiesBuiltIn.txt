@@ -95,7 +95,7 @@ Inherited: False;
 ---
 Name: Build
 Type: dbLong
-Value: 720
+Value: 1150
 Inherited: False;
 ---
 Name: ProjVer

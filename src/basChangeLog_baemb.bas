@@ -4,7 +4,7 @@ Option Explicit
 ' Constants for settings of "Bemb"
 Public Const gstrPROJECT_BAEMB As String = "baemb"
 Private Const mstrVERSION_BAEMB As String = "0.5.0.1"
-Private Const mstrDATE_BAEMB As String = "July 17, 2015"
+Private Const mstrDATE_BAEMB As String = "July 19, 2015"
 
 Public Const THE_SOURCE_FOLDER = "C:\ae\baemb\src\"
 Public Const THE_BACK_END_SOURCE_FOLDER = "C:\ae\baemb\srcbe\"
@@ -42,7 +42,7 @@ PROC_EXIT:
     Exit Sub
 
 PROC_ERR:
-    MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure SVIPDB_EXPORT"
+    MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure BAEMB_EXPORT"
     Resume Next
 
 End Sub

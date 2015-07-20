@@ -17,7 +17,7 @@ Never Cache: 0, 4, False;
 AccessVersion: 09.50, 10, False;
 NavPane Category: 0, 4, False;
 Show Navigation Pane Search Bar: 1, 4, False;
-Build: 720, 4, False;
+Build: 1150, 4, False;
 ProjVer: 119, 3, False;
 HasOfflineLists: 70, 3, False;
 UseMDIMode: 1, 2, False;
