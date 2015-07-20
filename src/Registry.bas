@@ -30,7 +30,6 @@ Public Enum RegValueTypes
 End Enum
 
 
-
 Public Function GetDWORDValue(Hive As RegistryHives, ByVal KeyPath As String, ValueName As String) As Long
 On Error GoTo Err_Proc
 '=========================
@@ -201,7 +200,6 @@ On Error GoTo Err_Proc
   Dim Subkeys() As Variant
   Dim v As Variant
 '=========================
-
 
   If Right(KeyPath, 1) = "\" Then KeyPath = Left(KeyPath, Len(KeyPath) - 1) 'remove trailing \ if present
   

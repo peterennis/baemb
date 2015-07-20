@@ -13,8 +13,6 @@ Const DEFAULT_SNIPPETS_FILENAME = "bembSnippets.js"
 
 Public Event Initialized()
 
-
-
 Private WithEvents mHostForm As Form_BembSubform  'the subform that hosts the browser control
 Attribute mHostForm.VB_VarHelpID = -1
 Private wbControl As Object                       'the web browser control object (the actual control, not the .Object property of the control)
@@ -33,11 +31,9 @@ End Type
 
 'eventID passed to/from JS is the same as the array index
 Private jsEvents() As JS_EVENT_INFO
-
-
-
-
+'
 '===================================================================================================
+
 
 Public Function GetSnippet(SnippetName As String) As String
   'returns ZLS if not found
@@ -87,33 +83,23 @@ Public Function GetSnippet(SnippetName As String) As String
 End Function
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Public Property Get SnippetsPath() As String
   If mSnippetsPath = "" Then mSnippetsPath = CurrentProject.Path & "\" & DEFAULT_SNIPPETS_FILENAME
   SnippetsPath = mSnippetsPath
 End Property
+
+
 Public Property Let SnippetsPath(s As String)
   mSnippetsPath = s
 End Property
+
 
 Public Property Get SnippetStartQualifier() As String
   If mSnippetStartQualifier = "" Then mSnippetStartQualifier = DEFAULT_SNIPPET_START_QUALIFIER
   SnippetStartQualifier = mSnippetStartQualifier
 End Property
+
+
 Public Property Let SnippetStartQualifier(s As String)
   mSnippetStartQualifier = s
 End Property
@@ -123,15 +109,15 @@ Public Property Get Document() As Object
   Set Document = wbControl.Object.Document
 End Property
 
+
 Public Property Get AllowScroll() As Boolean
   AllowScroll = mAllowScroll
 End Property
 
+
 Public Property Let AllowScroll(b As Boolean)
   mAllowScroll = b
 End Property
-
-
 
 
 Private Sub FinalizeInitialization()
@@ -140,11 +126,7 @@ Private Sub FinalizeInitialization()
   wbControl.Object.Document.All("bemb-event-element").OnClick = mEventReceiver
     
   Me.Document.body.scroll = IIf(Me.AllowScroll, "yes", "no")
-  
-  
-  
 End Sub
-
 
 
 Public Function LoadScriptFileToString(scriptFilePath As String) As String
@@ -179,7 +161,6 @@ Err_Proc:
 End Function
 
 
-
 Public Function Init(SubformContainer As Access.SubForm, URL As String) As Boolean
 On Error GoTo Err_Proc
 '=========================
@@ -207,13 +188,16 @@ Err_Proc:
   Resume
 End Function
 
+
 Public Function Eval(CodeToRun As String, Optional postFunction As String = "") As String
   Eval = mHostForm.Eval(CodeToRun, postFunction)
 End Function
 
+
 Public Property Get jQueryNativeVersion() As String
   jQueryNativeVersion = mHostForm.Eval("jQuery.fn.jquery;")
 End Property
+
 
 Public Sub EventReceived()
   'public only for calling by event handler, not for user consumption
@@ -221,6 +205,7 @@ Public Sub EventReceived()
   EventID = wbControl.Object.Document.script.bembRaisedEventID
   CallByName jsEvents(EventID).ObjToCall, jsEvents(EventID).MethodToCall, VbMethod
 End Sub
+
 
 Public Property Get LastData() As String
   LastData = mHostForm.bembData
@@ -277,7 +262,6 @@ Private Function JsEventsInitialized() As Boolean
 End Function
 
 
-
 Private Function AddToJSEvents() As Long
   'returns the zero based index that was added
   Dim Idx As Long
@@ -296,11 +280,11 @@ Private Function AddToJSEvents() As Long
 End Function
 
 
-
 Private Sub mHostForm_InitializationComplete()
   FinalizeInitialization
   RaiseEvent Initialized
 End Sub
+
 
 Private Sub mHostForm_InitialNavReady()
   wbControl.Navigate2 mInitialURL

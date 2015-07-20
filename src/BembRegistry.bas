@@ -1,8 +1,7 @@
 Option Compare Database
 Option Explicit
 
-
-'OPTIONAL: provides programmatic means to set HKCU key so the Web Browser Control runs under IE11 emulation mode
+' OPTIONAL: provides programmatic means to set HKCU key so the Web Browser Control runs under IE11 emulation mode
 '
 ' v1.0
 ' jleach@dymeng, Feb 2015
@@ -47,6 +46,7 @@ Public Function IsIEEmulationModeSet(IEMode As IEEmulationMode) As Boolean
   End If
 
 End Function
+
 
 Public Function SetIEEmulationMode(IEMode As IEEmulationMode, Optional Silent As Boolean = False) As Boolean
 
