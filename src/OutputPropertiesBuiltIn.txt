@@ -243,3 +243,8 @@ Type: dbLong
 Value: 0
 Inherited: False;
 ---
+Name: AppTitle
+Type: dbText
+Value: baemb
+Inherited: False;
+---

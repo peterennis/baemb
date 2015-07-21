@@ -5,8 +5,6 @@
 	Provides base means for Access/VBA to interact with the JS
 	To help alleviate VBA string quote management, only single quotes are used in this script
 	
-	
-	
 	ERRORS:
 		10: jQuery not present in host page
 	
@@ -16,6 +14,7 @@
 function browseEmbedBridge() {
 
 }
+
 
 browseEmbedBridge.prototype = {
 
@@ -27,7 +26,6 @@ browseEmbedBridge.prototype = {
 		} catch (err) {
 			alert(err.message);
 		}
-		
 		
 		
 		function initJQuery() {
@@ -85,8 +83,6 @@ browseEmbedBridge.prototype = {
 	
 	},
 	
-	
-	
 	// links an event on jquery selected elements... callback to bemb_eventListener
 	// func is an optional function passed by the VBA that will modify the mvbjData after the
 	// event places its info... useful for coercing complex JS data into readable VB strings
@@ -101,21 +97,18 @@ browseEmbedBridge.prototype = {
 	
 }
 
+
 var bemb = new browseEmbedBridge();	// what we'll call upon to interact with our VBA project
-
-
 var bembData;						// for transferring data to VBA
 var bembRaisedEventID;				// don't want to group the event ID with the event object to transfer, we'll hold this separate
 var bembEvent;						// we'll stuff the stringified event data into bembData, but maintain an actual object here...
 var bemb_$;							// our very own jQuery... doesn't seem to like being defined in the prototype...
 
 
-
 function bembException(number, message) {
 	this.message = message;
 	this.number = number;
 }
-
 
 
 // doesn't seem to like being defined in the prototype...

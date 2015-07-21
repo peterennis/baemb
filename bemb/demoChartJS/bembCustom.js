@@ -10,12 +10,3 @@ function refreshChart(chartData, options) {
 	window.myLine = new Chart(ctx).Line(chartData, options);
 	
 }
-
-
-
-
-
-
-
-
-

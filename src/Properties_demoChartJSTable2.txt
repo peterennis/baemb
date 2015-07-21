@@ -3,7 +3,7 @@
 |--- Connect ==> 
 |--- Attributes ==> 0
 |--- SourceTableName ==> 
-|--- RecordCount ==> 10
+|--- RecordCount ==> 15
 |--- ValidationRule ==> 
 |--- ValidationText ==> 
 |--- ConflictTable ==> 

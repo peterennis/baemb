@@ -47,3 +47,4 @@ NavPane View By: 0, 4, False;
 NavPane Sort By: 1, 4, False;
 Perform Name AutoCorrect: 0, 4, False;
 Track Name AutoCorrect Info: 0, 4, False;
+AppTitle: baemb, 10, False;

@@ -2,6 +2,7 @@
 Canvas.width = window.innerWidth;
 Canvas.height = window.innerHeight;
 
+
 /// StartSnippet: ChartClickHandlerSnippet
 var points = window.myLine.getPointsAtEvent(event);
 if (points[0] != null) {
@@ -13,7 +14,7 @@ if (points[0] != null) {
 
 /// StartSnippet: RefreshChartDataBuild
 refreshChart({
-	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 	datasets: [{
 		label: 'Dataset 1 Name',
 		fillColor: 'rgba(220,220,220,0.2)',
