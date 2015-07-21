@@ -33,6 +33,7 @@ refreshChart({
 		data: [|DATASET2|]
 	}]
 }, {
+	animation: false,
 	responsive: true,
 	bezierCurve: true,
 	pointHitDetectionRadius: 5,

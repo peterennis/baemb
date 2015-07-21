@@ -110,7 +110,7 @@ Inherited: False;
 ---
 Name: UseMDIMode
 Type: dbByte
-Value: 1
+Value: 0
 Inherited: False;
 ---
 Name: ShowDocumentTabs

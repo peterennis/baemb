@@ -53,10 +53,11 @@ End Sub
 ' %004 -
 ' %003 -
 ' %002 -
-' %001 -
 '=============================================================================================================================
 '
 '
+'20150720 - v0501 -
+    ' FIXED - %001 - Turn off chart animation Ref: http://www.chartjs.org/docs/ - Global chart configuration
 '20150717 - v0501 -
     ' Export new release to review and test fixes for #1 and #2 errors on github
 '20150717 - v0500 -
