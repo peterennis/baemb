@@ -2,10 +2,10 @@ Option Compare Database
 Option Explicit
 
 ' Constants for settings of "Baemb"
-Private Const BAEMB_DEMO_PATH = "\demo"
-'Private Const BEMB_SCRIPT_PATH = "\bemb"
-Private Const BEMB_SCRIPT_PATH = "\baemb"
-Public Const gBAEMB_DEMO1 = BAEMB_DEMO_PATH & BEMB_SCRIPT_PATH
+Public Const BAEMB_DEMO_PATH = "\demo"
+Public Const BEMB_SCRIPT_PATH = "\bemb"
+Public Const BAEMB_SCRIPT_PATH = "\baemb"
+Public gstrBAEMB_DEMO As String
 
 Public Const gstrPROJECT_BAEMB As String = "baemb"
 Private Const mstrVERSION_BAEMB As String = "0.5.0.2"

@@ -194,10 +194,10 @@ Private Sub InitJSForAccessHost()
 
     Debug.Print "InitJSForAccessHost"
     Debug.Print , CurrentProject.Path
-    Debug.Print , CurrentProject.Path & gBAEMB_DEMO1
-    Debug.Print , CurrentProject.Path & gBAEMB_DEMO1 & "\" & BEMB_SCRIPT_FILENAME
+    Debug.Print , CurrentProject.Path & gstrBAEMB_DEMO
+    Debug.Print , CurrentProject.Path & gstrBAEMB_DEMO & "\" & BEMB_SCRIPT_FILENAME
     Dim strReplacePath As String
-    strReplacePath = Replace(CurrentProject.Path & gBAEMB_DEMO1 & "\" & BEMB_SCRIPT_FILENAME, "\", "/")
+    strReplacePath = Replace(CurrentProject.Path & gstrBAEMB_DEMO & "\" & BEMB_SCRIPT_FILENAME, "\", "/")
     Debug.Print , "strReplacePath = " & strReplacePath
 
     Me.AddSourcedScript strReplacePath

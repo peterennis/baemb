@@ -238,6 +238,9 @@ Private WithEvents bemb As BembObject
 Attribute bemb.VB_VarHelpID = -1
 
 Private Sub Form_Open(Cancel As Integer)
+
+    gstrBAEMB_DEMO = BAEMB_DEMO_PATH & BAEMB_SCRIPT_PATH
+
     If Not BembRegistry.IsIEEmulationModeSet(IEEmulation11) Then
         If MsgBox("IE Emulation Mode registry value not set... would you like the application to set it now?", vbOKCancel + vbQuestion, "browseEmbed") = vbCancel Then
             Cancel = True
@@ -256,7 +259,7 @@ End Sub
 
 Private Sub bemb_Initialized()
 
-    bemb.SnippetsPath = CurrentProject.Path & gBAEMB_DEMO1 & "\snippets.js"
+    bemb.SnippetsPath = CurrentProject.Path & gstrBAEMB_DEMO & "\snippets.js"
     Debug.Print "bemb_Initialized"
     Debug.Print , "bemb.SnippetsPath = " & bemb.SnippetsPath
 
@@ -420,7 +423,7 @@ Private Sub Form_Load()
 
     Debug.Print "demoChartJS Form_Load"
     Debug.Print , "strChartName = " & strChartName
-    bemb.Init Me.subChart, CurrentProject.Path & gBAEMB_DEMO1 & strChartName
+    bemb.Init Me.subChart, CurrentProject.Path & gstrBAEMB_DEMO & strChartName
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
