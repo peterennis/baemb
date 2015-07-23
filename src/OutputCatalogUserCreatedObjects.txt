@@ -1,4 +1,5 @@
 "Form","BembSubform","2/19/2015"
+"Form","demobaembChartJS","7/23/2015"
 "Form","demoChartJS","2/19/2015"
 "Form","demoChartJSPopup","2/23/2015"
 "Form","demoChartJSSub1","2/23/2015"
@@ -7,6 +8,7 @@
 "Module","aebasTEST_aegit_expClass","7/17/2015"
 "Module","aegit_expClass","7/17/2015"
 "Module","basChangeLog_baemb","7/17/2015"
+"Module","basTesting","7/23/2015"
 "Module","BembEventHandler","2/22/2015"
 "Module","BembObject","2/19/2015"
 "Module","BembRegistry","2/19/2015"

@@ -3,7 +3,8 @@ Option Explicit
 
 ' Constants for settings of "Baemb"
 Private Const BAEMB_DEMO_PATH = "\demo"
-Private Const BEMB_SCRIPT_PATH = "\bemb"
+'Private Const BEMB_SCRIPT_PATH = "\bemb"
+Private Const BEMB_SCRIPT_PATH = "\baemb"
 Public Const gBAEMB_DEMO1 = BAEMB_DEMO_PATH & BEMB_SCRIPT_PATH
 
 Public Const gstrPROJECT_BAEMB As String = "baemb"
@@ -60,6 +61,8 @@ End Sub
 '=============================================================================================================================
 '
 '
+'20150723 - v0502 -
+    ' Added demobaembChartJS
 '20150720 - v0501 -
     ' FIXED - %001 - Turn off chart animation Ref: http://www.chartjs.org/docs/ - Global chart configuration
 '20150717 - v0501 -
