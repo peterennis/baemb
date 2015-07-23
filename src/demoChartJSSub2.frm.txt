@@ -14,18 +14,16 @@ Begin Form
     Width =8884
     DatasheetFontHeight =11
     ItemSuffix =2
-    Left =4500
-    Top =1620
-    Right =15165
-    Bottom =11235
+    Left =4215
+    Top =9585
+    Right =7485
+    Bottom =12735
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0xeb7039945489e440
     End
     GUID = Begin
         0xe6d317b41b8a1246b847e23efd487cae
-    End
-    NameMap = Begin
     End
     RecordSource ="demoChartJSTable2"
     AfterUpdate ="[Event Procedure]"
@@ -182,5 +180,5 @@ Option Compare Database
 Option Explicit
 
 Private Sub Form_AfterUpdate()
-  Me.Parent.RefreshChart
+    Me.Parent.RefreshChart
 End Sub

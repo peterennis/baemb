@@ -26,11 +26,15 @@ Begin Form
     GUID = Begin
         0xa0e143b30faf9e4480e3dc21d1109f46
     End
-    NameMap = Begin
-    End
     Caption ="ChartJS Popup"
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
+    PrtMip = Begin
+    End
+    PrtDevMode = Begin
+    End
+    PrtDevNames = Begin
+    End
     FilterOnLoad =0
     ShowPageMargins =0
     DisplayOnSharePointSite =1
@@ -43,6 +47,10 @@ Begin Form
     ForeThemeColorIndex =0
     AlternateBackThemeColorIndex =1
     AlternateBackShade =95.0
+    PrtDevModeW = Begin
+    End
+    PrtDevNamesW = Begin
+    End
     NoSaveCTIWhenDisabled =1
     Begin
         Begin Label
@@ -101,5 +109,5 @@ Option Compare Database
 Option Explicit
 
 Private Sub Form_Open(Cancel As Integer)
-  Me.lbl.Caption = Nz(Me.OpenArgs, "(no data supplied via OpenArgs)")
+    Me.lbl.Caption = Nz(Me.OpenArgs, "(no data supplied via OpenArgs)")
 End Sub

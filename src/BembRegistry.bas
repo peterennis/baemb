@@ -18,7 +18,6 @@ Const IE_EMULATION_KEY = "Software\Microsoft\Internet Explorer\Main\FeatureContr
 Const IE_EMULATION_VALUE = "msaccess.exe"
 Const IE_EMULATION_MODE_11 = 11999
 
-
 Public Function IsIEEmulationModeSet(IEMode As IEEmulationMode) As Boolean
 
   Dim IEModeValue As Long
@@ -46,7 +45,6 @@ Public Function IsIEEmulationModeSet(IEMode As IEEmulationMode) As Boolean
   End If
 
 End Function
-
 
 Public Function SetIEEmulationMode(IEMode As IEEmulationMode, Optional Silent As Boolean = False) As Boolean
 

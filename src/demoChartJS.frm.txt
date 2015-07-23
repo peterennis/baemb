@@ -3,6 +3,8 @@ VersionRequired =20
 PublishOption =1
 Begin Form
     RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
     NavigationButtons = NotDefault
     DividingLines = NotDefault
     AllowDesignChanges = NotDefault
@@ -12,13 +14,11 @@ Begin Form
     DatasheetGridlinesBehavior =3
     GridX =24
     GridY =24
-    Width =7380
+    Width =20160
     DatasheetFontHeight =11
     ItemSuffix =7
-    Left =195
-    Top =255
-    Right =10230
-    Bottom =10245
+    Right =7365
+    Bottom =12060
     DatasheetGridlinesColor =14806254
     OnUnload ="[Event Procedure]"
     RecSrcDt = Begin
@@ -27,11 +27,15 @@ Begin Form
     GUID = Begin
         0xd9ebe934fb4e8640a01cf32118f82d5c
     End
-    NameMap = Begin
-    End
     Caption ="ChartJS Demo"
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
+    PrtMip = Begin
+    End
+    PrtDevMode = Begin
+    End
+    PrtDevNames = Begin
+    End
     OnLoad ="[Event Procedure]"
     FilterOnLoad =0
     ShowPageMargins =0
@@ -45,6 +49,10 @@ Begin Form
     ForeThemeColorIndex =0
     AlternateBackThemeColorIndex =1
     AlternateBackShade =95.0
+    PrtDevModeW = Begin
+    End
+    PrtDevNamesW = Begin
+    End
     NoSaveCTIWhenDisabled =1
     Begin
         Begin Label
@@ -97,7 +105,7 @@ Begin Form
         End
         Begin Section
             CanGrow = NotDefault
-            Height =8100
+            Height =12000
             Name ="Detail"
             GUID = Begin
                 0x546c569153ad414ab7d24617e8cd6543
@@ -110,10 +118,10 @@ Begin Form
                 Begin Subform
                     OverlapFlags =85
                     OldBorderStyle =0
-                    Left =60
-                    Top =60
-                    Width =7260
-                    Height =3360
+                    Left =120
+                    Top =120
+                    Width =7140
+                    Height =7860
                     BorderColor =10921638
                     Name ="subChart"
                     GUID = Begin
@@ -123,15 +131,15 @@ Begin Form
                     HorizontalAnchor =2
                     VerticalAnchor =2
 
-                    LayoutCachedLeft =60
-                    LayoutCachedTop =60
-                    LayoutCachedWidth =7320
-                    LayoutCachedHeight =3420
+                    LayoutCachedLeft =120
+                    LayoutCachedTop =120
+                    LayoutCachedWidth =7260
+                    LayoutCachedHeight =7980
                 End
                 Begin Subform
                     OverlapFlags =215
                     Left =60
-                    Top =4260
+                    Top =8460
                     Width =3600
                     Height =3420
                     TabIndex =1
@@ -145,14 +153,14 @@ Begin Form
                     VerticalAnchor =1
 
                     LayoutCachedLeft =60
-                    LayoutCachedTop =4260
+                    LayoutCachedTop =8460
                     LayoutCachedWidth =3660
-                    LayoutCachedHeight =7680
+                    LayoutCachedHeight =11880
                     Begin
                         Begin Label
                             OverlapFlags =93
                             Left =60
-                            Top =4020
+                            Top =8220
                             Width =930
                             Height =315
                             BorderColor =8355711
@@ -165,16 +173,16 @@ Begin Form
                             GridlineColor =10921638
                             VerticalAnchor =1
                             LayoutCachedLeft =60
-                            LayoutCachedTop =4020
+                            LayoutCachedTop =8220
                             LayoutCachedWidth =990
-                            LayoutCachedHeight =4335
+                            LayoutCachedHeight =8535
                         End
                     End
                 End
                 Begin Subform
                     OverlapFlags =215
                     Left =3720
-                    Top =4260
+                    Top =8460
                     Width =3540
                     Height =3420
                     TabIndex =2
@@ -188,14 +196,14 @@ Begin Form
                     VerticalAnchor =1
 
                     LayoutCachedLeft =3720
-                    LayoutCachedTop =4260
+                    LayoutCachedTop =8460
                     LayoutCachedWidth =7260
-                    LayoutCachedHeight =7680
+                    LayoutCachedHeight =11880
                     Begin
                         Begin Label
                             OverlapFlags =93
                             Left =3720
-                            Top =4020
+                            Top =8220
                             Width =930
                             Height =315
                             BorderColor =8355711
@@ -208,9 +216,9 @@ Begin Form
                             GridlineColor =10921638
                             VerticalAnchor =1
                             LayoutCachedLeft =3720
-                            LayoutCachedTop =4020
+                            LayoutCachedTop =8220
                             LayoutCachedWidth =4650
-                            LayoutCachedHeight =4335
+                            LayoutCachedHeight =8535
                         End
                     End
                 End
@@ -226,199 +234,195 @@ Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
 
-
 Private WithEvents bemb As BembObject
 Attribute bemb.VB_VarHelpID = -1
 
 Private Sub Form_Open(Cancel As Integer)
-  If Not BembRegistry.IsIEEmulationModeSet(IEEmulation11) Then
-    If MsgBox("IE Emulation Mode registry value not set... would you like the application to set it now?", vbOKCancel + vbQuestion, "browseEmbed") = vbCancel Then
-      Cancel = True
-      Exit Sub
-    Else
-      If Not BembRegistry.SetIEEmulationMode(IEEmulation11) Then
-        Cancel = True
-      Else
-        MsgBox "Registry successfully updated.  Please restart Access for this to take effect.", vbInformation, "browseEmbed"
-        Cancel = True
-        Application.Quit
-      End If
+    If Not BembRegistry.IsIEEmulationModeSet(IEEmulation11) Then
+        If MsgBox("IE Emulation Mode registry value not set... would you like the application to set it now?", vbOKCancel + vbQuestion, "browseEmbed") = vbCancel Then
+            Cancel = True
+            Exit Sub
+        Else
+            If Not BembRegistry.SetIEEmulationMode(IEEmulation11) Then
+                Cancel = True
+            Else
+                MsgBox "Registry successfully updated.  Please restart Access for this to take effect.", vbInformation, "browseEmbed"
+                Cancel = True
+                Application.Quit
+            End If
+        End If
     End If
-  End If
 End Sub
-
 
 Private Sub bemb_Initialized()
-  
-  bemb.SnippetsPath = CurrentProject.Path & "\bemb\snippets.js"
-  
-  addWindowResizeHandler
-  addChartClickEventHandler
-  
-  RefreshChart
-  
+
+    bemb.SnippetsPath = CurrentProject.Path & gBAEMB_DEMO1 & "\snippets.js"
+    Debug.Print "bemb_Initialized"
+    Debug.Print , "bemb.SnippetsPath = " & bemb.SnippetsPath
+
+    addWindowResizeHandler
+    addChartClickEventHandler
+
+    RefreshChart
+
 End Sub
 
-
 Private Sub addChartClickEventHandler()
-
 ' Method one, build script here in VBA
-'  Dim preReturnScript As String
+'   Dim preReturnScript As String
 '
-'  preReturnScript = ""
-'  preReturnScript = preReturnScript & "  var points = window.myLine.getPointsAtEvent(event); "
-'  preReturnScript = preReturnScript & "  bembData = points[0].value + ', ' + points[1].value; "
+'   preReturnScript = ""
+'   preReturnScript = preReturnScript & "  var points = window.myLine.getPointsAtEvent(event); "
+'   preReturnScript = preReturnScript & "  bembData = points[0].value + ', ' + points[1].value; "
 '
-'  bemb.AddEventHandler "#canvas", "click", Me, "bembEvent_ChartClick", preReturnScript
-
+'   bemb.AddEventHandler "#canvas", "click", Me, "bembEvent_ChartClick", preReturnScript
 
 ' Method two, load script from snippets
-  Dim script As String
-  
-  script = bemb.GetSnippet("ChartClickHandlerSnippet")
-  
-  bemb.AddEventHandler "#canvas", "click", Me, "bembEvent_ChartClick", script
+    Dim script As String
+
+    script = bemb.GetSnippet("ChartClickHandlerSnippet")
+
+    bemb.AddEventHandler "#canvas", "click", Me, "bembEvent_ChartClick", script
 
 End Sub
 
 Public Sub bembEvent_ChartClick()
-  If bemb.LastData <> "" Then
-    DoCmd.OpenForm "demoChartJSPopup", , , , , acDialog, "The values of the clicked point were " & bemb.LastData
-  End If
+    If bemb.LastData <> "" Then
+        DoCmd.OpenForm "demoChartJSPopup", , , , , acDialog, "The values of the clicked point were " & bemb.LastData
+    End If
 End Sub
-
 
 Private Sub addWindowResizeHandler()
-
-  'In this one, the element selector for jQuery is the window object, so we
-  'can't have that wrapped in quotes, thus we'll set the OmitElementSelectorQuoteWrap to true
-
+'In this one, the element selector for jQuery is the window object, so we
+'can't have that wrapped in quotes, thus we'll set the OmitElementSelectorQuoteWrap to true
 
 ' Method one, build script here in VBA
-'  Dim s As String
-'  s = ""
-'  s = s & "Canvas.width = window.innerWidth;"
-'  s = s & "Canvas.height = window.innerHeight;"
+'   Dim s As String
+'   s = ""
+'   s = s & "Canvas.width = window.innerWidth;"
+'   s = s & "Canvas.height = window.innerHeight;"
 '
-'  bemb.AddEventHandler "window", "resize", Me, "bembEvent_WindowResized", s, True
-
+'   bemb.AddEventHandler "window", "resize", Me, "bembEvent_WindowResized", s, True
 
 ' Method two, load script from snippets
-  Dim script As String
-  
-  script = bemb.GetSnippet("WindowResizedHandlerSnippet")
-  
-  bemb.AddEventHandler "window", "resize", Me, "bembEvent_WindowResized", script, True
-  
-End Sub
+    Dim script As String
 
+    script = bemb.GetSnippet("WindowResizedHandlerSnippet")
+
+    bemb.AddEventHandler "window", "resize", Me, "bembEvent_WindowResized", script, True
+
+End Sub
 
 Public Sub bembEvent_WindowResized()
   RefreshChart
 End Sub
 
-
 Public Sub RefreshChart()
-
 ' METHOD ONE: Build script in VBA
 '
-'  Dim script As String
-'  Dim rs As DAO.Recordset
+'   Dim script As String
+'   Dim rs As DAO.Recordset
 '
-'  script = "refreshChart({"
-'  script = script & " labels: ['January','February','March','April','May','June','July'],"
-'  script = script & " datasets: [{ label: 'My First dataset', fillColor: 'rgba(220,220,220,0.2)',"
-'  script = script & "strokeColor:'rgba(220,220,220,1)',pointColor:'rgba(220,220,220,1)',pointStrokeColor:'#fff',"
-'  script = script & "pointHighlightFill:'#fff',pointHighlightStroke:'rgba(220,220,220,1)',"
-'  script = script & "data : ["
+'   script = "refreshChart({"
+'   script = script & " labels: ['January','February','March','April','May','June','July'],"
+'   script = script & " datasets: [{ label: 'My First dataset', fillColor: 'rgba(220,220,220,0.2)',"
+'   script = script & "strokeColor:'rgba(220,220,220,1)',pointColor:'rgba(220,220,220,1)',pointStrokeColor:'#fff',"
+'   script = script & "pointHighlightFill:'#fff',pointHighlightStroke:'rgba(220,220,220,1)',"
+'   script = script & "data : ["
 '
-'  Set rs = CurrentDb.OpenRecordset("demoChartJSQuery1")
+'   Set rs = CurrentDb.OpenRecordset("demoChartJSQuery1")
 '
-'  While Not rs.EOF
-'    script = script & rs("TotalPerMonth") & ","
-'    rs.MoveNext
-'  Wend
-'  rs.Close
-'  'trim the last comma
-'  script = Left(script, Len(script) - 1)
+'   While Not rs.EOF
+'       script = script & rs("TotalPerMonth") & ","
+'       rs.MoveNext
+'   Wend
+'   rs.Close
+'   'trim the last comma
+'   script = Left(script, Len(script) - 1)
 '
-'  script = script & "]},{"
-'  script = script & "label: 'My Second dataset',fillColor:'rgba(151,187,205,0.2)',strokeColor:'rgba(151,187,205,1)',"
-'  script = script & "pointColor:'rgba(151,187,205,1)',pointStrokeColor:'#fff',pointHighlightFill:'#fff',pointHighlightStroke:'rgba(151,187,205,1)',"
-'  script = script & "data: ["
+'   script = script & "]},{"
+'   script = script & "label: 'My Second dataset',fillColor:'rgba(151,187,205,0.2)',strokeColor:'rgba(151,187,205,1)',"
+'   script = script & "pointColor:'rgba(151,187,205,1)',pointStrokeColor:'#fff',pointHighlightFill:'#fff',pointHighlightStroke:'rgba(151,187,205,1)',"
+'   script = script & "data: ["
 '
-'  Set rs = CurrentDb.OpenRecordset("demoChartJSQuery2")
+'   Set rs = CurrentDb.OpenRecordset("demoChartJSQuery2")
 '
-'  While Not rs.EOF
-'    script = script & rs("TotalPerMonth") & ","
-'    rs.MoveNext
-'  Wend
-'  rs.Close
+'   While Not rs.EOF
+'       script = script & rs("TotalPerMonth") & ","
+'       rs.MoveNext
+'   Wend
+'   rs.Close
 '
-'  'trim the last comma
-'  script = Left(script, Len(script) - 1)
+'   'trim the last comma
+'   script = Left(script, Len(script) - 1)
 '
-'  script = script & "]}]"
+'   script = script & "]}]"
 '
-'  script = script & "});"
+'   script = script & "});"
 '
-'  bemb.ExecScript script
+'   bemb.ExecScript script
 
 ' METHOD TWO: Load Script from Snippet
 '   |VALUE| is used to denote parameters, which we'll replace with generated data...
 
-  Dim script As String
-  Dim rs As DAO.Recordset
-  Dim s As String
-  
-  script = bemb.GetSnippet("RefreshChartDataBuild")
-  
-  'load dataset1
-  Set rs = CurrentDb.OpenRecordset("demoChartJSQuery1")
+    Dim script As String
+    Dim rs As DAO.Recordset
+    Dim s As String
 
-  While Not rs.EOF
-    s = s & rs("TotalPerMonth") & ","
-    rs.MoveNext
-  Wend
-  rs.Close
-  
-  'trim the last comma
-  s = Left(s, Len(s) - 1)
-  script = Replace(script, "|DATASET1|", s)
-  
-  
-  'load dataset2
-  s = ""
-  Set rs = CurrentDb.OpenRecordset("demoChartJSQuery2")
+    script = bemb.GetSnippet("RefreshChartDataBuild")
 
-  While Not rs.EOF
-    s = s & rs("TotalPerMonth") & ","
-    rs.MoveNext
-  Wend
-  rs.Close
-  
-  'trim the last comma
-  s = Left(s, Len(s) - 1)
-  script = Replace(script, "|DATASET2|", s)
+    'load dataset1
+    Set rs = CurrentDb.OpenRecordset("demoChartJSQuery1")
 
-  bemb.ExecScript script
+    While Not rs.EOF
+        s = s & rs("TotalPerMonth") & ","
+        rs.MoveNext
+    Wend
+    rs.Close
+
+    'trim the last comma
+    s = Left(s, Len(s) - 1)
+    script = Replace(script, "|DATASET1|", s)
+
+    'load dataset2
+    s = ""
+    Set rs = CurrentDb.OpenRecordset("demoChartJSQuery2")
+
+    While Not rs.EOF
+        s = s & rs("TotalPerMonth") & ","
+        rs.MoveNext
+    Wend
+    rs.Close
+
+    'trim the last comma
+    s = Left(s, Len(s) - 1)
+    script = Replace(script, "|DATASET2|", s)
+
+    bemb.ExecScript script
 
 End Sub
 
 Private Sub btnRefreshChart_Click()
-  RefreshChart
+    RefreshChart
 End Sub
 
 Private Sub Form_Load()
-  Set bemb = New BembObject
-  
-  bemb.AllowScroll = False
-  
-  bemb.Init Me.subChart, CurrentProject.Path & "\bemb\demoChartJS\charting.html"
+    Dim strChartName As String
+    strChartName = "\demoChartJS\charting.html"
+
+    Dim intTwips As Integer
+    intTwips = 1440
+    DoCmd.MoveSize 0, 0, 5.5 * intTwips, 9 * intTwips
+
+    Set bemb = New BembObject
+
+    bemb.AllowScroll = False
+
+    Debug.Print "demoChartJS Form_Load"
+    Debug.Print , "strChartName = " & strChartName
+    bemb.Init Me.subChart, CurrentProject.Path & gBAEMB_DEMO1 & strChartName
 End Sub
 
-
-
 Private Sub Form_Unload(Cancel As Integer)
-  If Not bemb Is Nothing Then Set bemb = Nothing
+    If Not bemb Is Nothing Then Set bemb = Nothing
 End Sub

@@ -29,7 +29,6 @@ Public Enum RegValueTypes
   REG_QWORD = 11
 End Enum
 
-
 Public Function GetDWORDValue(Hive As RegistryHives, ByVal KeyPath As String, ValueName As String) As Long
 On Error GoTo Err_Proc
 '=========================
@@ -61,7 +60,6 @@ Err_Proc:
   Resume Exit_Proc
   Resume
 End Function
-
 
 Public Function CreateDWORDValue(Hive As RegistryHives, ByVal KeyPath As String, ValueName As String, Value As Long) As Boolean
 On Error GoTo Err_Proc
@@ -99,7 +97,6 @@ Err_Proc:
   Resume Exit_Proc
   Resume
 End Function
-
 
 Public Function ValueExists( _
       Hive As RegistryHives, _
@@ -157,7 +154,6 @@ Err_Proc:
   Resume
 End Function
 
-
 Public Function CreateKey(Hive As RegistryHives, ByVal KeyPath As String) As Boolean
 On Error GoTo Err_Proc
 '=========================
@@ -187,7 +183,6 @@ Err_Proc:
   Resume Exit_Proc
   Resume
 End Function
-
 
 Public Function KeyExists(Hive As RegistryHives, ByVal KeyPath As String) As Boolean
 On Error GoTo Err_Proc
@@ -234,7 +229,6 @@ Err_Proc:
   Resume Exit_Proc
   Resume
 End Function
-
 
 Private Function GetReg() As Object
   Set GetReg = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv")

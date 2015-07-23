@@ -1,6 +1,6 @@
 Name: Name
 Type: dbMemo
-Value: C:\ae\baemb\baemb.v0.5.0.1.accdb
+Value: C:\ae\baemb\baemb.v0.5.0.2.accdb
 Inherited: False;
 ---
 Name: Connect
@@ -110,7 +110,7 @@ Inherited: False;
 ---
 Name: UseMDIMode
 Type: dbByte
-Value: 0
+Value: 1
 Inherited: False;
 ---
 Name: ShowDocumentTabs

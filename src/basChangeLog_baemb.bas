@@ -1,10 +1,14 @@
 Option Compare Database
 Option Explicit
 
-' Constants for settings of "Bemb"
+' Constants for settings of "Baemb"
+Private Const BAEMB_DEMO_PATH = "\demo"
+Private Const BEMB_SCRIPT_PATH = "\bemb"
+Public Const gBAEMB_DEMO1 = BAEMB_DEMO_PATH & BEMB_SCRIPT_PATH
+
 Public Const gstrPROJECT_BAEMB As String = "baemb"
-Private Const mstrVERSION_BAEMB As String = "0.5.0.1"
-Private Const mstrDATE_BAEMB As String = "July 19, 2015"
+Private Const mstrVERSION_BAEMB As String = "0.5.0.2"
+Private Const mstrDATE_BAEMB As String = "July 22, 2015"
 
 Public Const THE_SOURCE_FOLDER = "C:\ae\baemb\src\"
 Public Const THE_BACK_END_SOURCE_FOLDER = "C:\ae\baemb\srcbe\"

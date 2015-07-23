@@ -1,0 +1,3 @@
+"demoChartJSQuery1"
+"demoChartJSQuery2"
+"zzzqryCatalogUserCreatedObjects"
