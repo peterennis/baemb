@@ -9,8 +9,8 @@ Public Const BAEMBPIE_SCRIPT_PATH = "\baembPie"
 Public gstrBAEMB_DEMO As String
 
 Public Const gstrPROJECT_BAEMB As String = "baemb"
-Private Const mstrVERSION_BAEMB As String = "0.5.0.3"
-Private Const mstrDATE_BAEMB As String = "July 23, 2015"
+Private Const mstrVERSION_BAEMB As String = "0.5.0.4"
+Private Const mstrDATE_BAEMB As String = "July 24, 2015"
 
 Public Const THE_SOURCE_FOLDER = "C:\ae\baemb\src\"
 Public Const THE_BACK_END_SOURCE_FOLDER = "C:\ae\baemb\srcbe\"

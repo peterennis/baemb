@@ -10,6 +10,7 @@ Begin Form
     AllowDesignChanges = NotDefault
     DefaultView =0
     ScrollBars =0
+    BorderStyle =3
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridX =24
