@@ -1,6 +1,6 @@
 /// StartSnippet: WindowResizedHandlerSnippet
-Canvas.width = 400;						//window.innerWidth;
-Canvas.height = 400;					//window.innerHeight;
+Canvas.width = window.innerWidth;
+Canvas.height = window.innerHeight;
 
 
 /// StartSnippet: ChartClickHandlerSnippet

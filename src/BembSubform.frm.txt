@@ -11,13 +11,13 @@ Begin Form
     DatasheetGridlinesBehavior =3
     GridX =24
     GridY =24
-    Width =360
+    Width =17520
     DatasheetFontHeight =11
     ItemSuffix =1
     Left =255
     Top =600
-    Right =20250
-    Bottom =8460
+    Right =18015
+    Bottom =8130
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x6bd443b4d288e440
@@ -52,7 +52,9 @@ Begin Form
     NoSaveCTIWhenDisabled =1
     Begin
         Begin WebBrowser
-            OldBorderStyle =1
+            Width =360
+            Height =360
+            BorderColor =10921638
             BackThemeColorIndex =1
             BorderThemeColorIndex =1
             BorderShade =65.0
@@ -60,7 +62,7 @@ Begin Form
             GridlineShade =65.0
         End
         Begin Section
-            Height =360
+            Height =7440
             Name ="Detail"
             GUID = Begin
                 0xb095ce6f4334144885515083c672d719
@@ -71,12 +73,10 @@ Begin Form
             BackThemeColorIndex =1
             Begin
                 Begin WebBrowser
-                    OldBorderStyle =0
                     OverlapFlags =85
-                    Width =360
-                    Height =360
+                    Width =17280
+                    Height =7200
                     AutoActivate =1
-                    BorderColor =10921638
                     Name ="browserControl"
                     OleData = Begin
                     End
@@ -87,8 +87,8 @@ Begin Form
                     HorizontalAnchor =2
                     VerticalAnchor =2
 
-                    LayoutCachedWidth =360
-                    LayoutCachedHeight =360
+                    LayoutCachedWidth =17280
+                    LayoutCachedHeight =7200
                     OnDocumentComplete ="[Event Procedure]"
                 End
             End
@@ -103,9 +103,9 @@ Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
 
-Const BROWSER_CONTROL_NAME As String = "browserControl"
-Const BEMB_SCRIPT_FILENAME = "bemb.v1.0.0.js"
-Const MAX_SCRIPT_INIT_WAIT_ITERATIONS = 500
+Private Const BROWSER_CONTROL_NAME As String = "browserControl"
+Private Const BEMB_SCRIPT_FILENAME = "bemb.v1.0.0.js"
+Private Const MAX_SCRIPT_INIT_WAIT_ITERATIONS = 500
 
 'milliseconds to allow for the DocumentComplete event to return before picking back up
 'in the next flow
@@ -117,7 +117,7 @@ Public Event InitializationComplete()
 
 Private doc As Object
 
-Public Function Eval(callString As String, Optional postFunction As String = "") As String
+Public Function Eval(ByVal callString As String, Optional postFunction As String = "") As String
     'run the code specified in callString
     'this places the function return into the bembData global variable that gets returned by this function
     'optionally, add a function that will process the bembData before returning it to VBA
@@ -249,7 +249,7 @@ Private Function bembInitWaitLoop() As Boolean
 
 End Function
 
-Public Sub AddSourcedScript(PathOrCDN As String)
+Public Sub AddSourcedScript(ByVal PathOrCDN As String)
     'load a file or CDN based script into the DOM
 
     Dim script As String
@@ -288,7 +288,7 @@ Public Property Get jsBembData() As String
     jsBembData = doc.script.bembData
 End Property
 
-Private Function EscapeVBADoubleQuotes(ValueIn As String) As String
+Private Function EscapeVBADoubleQuotes(ByVal ValueIn As String) As String
     'convert " to ""
     EscapeVBADoubleQuotes = Replace(ValueIn, """", """""")
 End Function

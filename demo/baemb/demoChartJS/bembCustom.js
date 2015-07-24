@@ -6,7 +6,9 @@ function refreshChart(chartData, options) {
 
 	Canvas = document.getElementById("canvas");
 	var ctx = Canvas.getContext("2d");
-		
+
+	ctx.canvas.width = 750;
+	ctx.canvas.height = 500;
 	window.myLine = new Chart(ctx).Line(chartData, options);
 	
 }

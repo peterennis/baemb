@@ -1,5 +1,5 @@
 "Form","BembSubform","2/19/2015"
-"Form","demobaembChartJS","7/23/2015"
+"Form","demoBaembChartJS","7/23/2015"
 "Form","demoChartJS","2/19/2015"
 "Form","demoChartJSPopup","2/23/2015"
 "Form","demoChartJSSub1","2/23/2015"

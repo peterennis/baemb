@@ -17,8 +17,8 @@ Begin Form
     Width =20160
     DatasheetFontHeight =11
     ItemSuffix =7
-    Right =7365
-    Bottom =12060
+    Right =18525
+    Bottom =8325
     DatasheetGridlinesColor =14806254
     OnUnload ="[Event Procedure]"
     RecSrcDt = Begin
@@ -105,7 +105,7 @@ Begin Form
         End
         Begin Section
             CanGrow = NotDefault
-            Height =12000
+            Height =8100
             Name ="Detail"
             GUID = Begin
                 0x546c569153ad414ab7d24617e8cd6543
@@ -116,12 +116,12 @@ Begin Form
             BackThemeColorIndex =1
             Begin
                 Begin Subform
-                    OverlapFlags =85
+                    OverlapFlags =223
                     OldBorderStyle =0
                     Left =120
                     Top =120
-                    Width =7140
-                    Height =7860
+                    Width =18000
+                    Height =7920
                     BorderColor =10921638
                     Name ="subChart"
                     GUID = Begin
@@ -133,13 +133,14 @@ Begin Form
 
                     LayoutCachedLeft =120
                     LayoutCachedTop =120
-                    LayoutCachedWidth =7260
-                    LayoutCachedHeight =7980
+                    LayoutCachedWidth =18120
+                    LayoutCachedHeight =8040
                 End
                 Begin Subform
-                    OverlapFlags =215
+                    Visible = NotDefault
+                    OverlapFlags =247
                     Left =60
-                    Top =8460
+                    Top =4620
                     Width =3600
                     Height =3420
                     TabIndex =1
@@ -153,14 +154,14 @@ Begin Form
                     VerticalAnchor =1
 
                     LayoutCachedLeft =60
-                    LayoutCachedTop =8460
+                    LayoutCachedTop =4620
                     LayoutCachedWidth =3660
-                    LayoutCachedHeight =11880
+                    LayoutCachedHeight =8040
                     Begin
                         Begin Label
                             OverlapFlags =93
                             Left =60
-                            Top =8220
+                            Top =4380
                             Width =930
                             Height =315
                             BorderColor =8355711
@@ -173,16 +174,17 @@ Begin Form
                             GridlineColor =10921638
                             VerticalAnchor =1
                             LayoutCachedLeft =60
-                            LayoutCachedTop =8220
+                            LayoutCachedTop =4380
                             LayoutCachedWidth =990
-                            LayoutCachedHeight =8535
+                            LayoutCachedHeight =4695
                         End
                     End
                 End
                 Begin Subform
-                    OverlapFlags =215
+                    Visible = NotDefault
+                    OverlapFlags =247
                     Left =3720
-                    Top =8460
+                    Top =4620
                     Width =3540
                     Height =3420
                     TabIndex =2
@@ -196,14 +198,14 @@ Begin Form
                     VerticalAnchor =1
 
                     LayoutCachedLeft =3720
-                    LayoutCachedTop =8460
+                    LayoutCachedTop =4620
                     LayoutCachedWidth =7260
-                    LayoutCachedHeight =11880
+                    LayoutCachedHeight =8040
                     Begin
                         Begin Label
                             OverlapFlags =93
                             Left =3720
-                            Top =8220
+                            Top =4380
                             Width =930
                             Height =315
                             BorderColor =8355711
@@ -216,9 +218,9 @@ Begin Form
                             GridlineColor =10921638
                             VerticalAnchor =1
                             LayoutCachedLeft =3720
-                            LayoutCachedTop =8220
+                            LayoutCachedTop =4380
                             LayoutCachedWidth =4650
-                            LayoutCachedHeight =8535
+                            LayoutCachedHeight =4695
                         End
                     End
                 End
@@ -415,13 +417,13 @@ Private Sub Form_Load()
 
     Dim intTwips As Integer
     intTwips = 1440
-    DoCmd.MoveSize 0, 0, 5.5 * intTwips, 9 * intTwips
+    DoCmd.MoveSize 0, 0, 14 * intTwips, 6 * intTwips
 
     Set bemb = New BembObject
 
     bemb.AllowScroll = False
 
-    Debug.Print "demoChartJS Form_Load"
+    Debug.Print "demobaembChartJS Form_Load"
     Debug.Print , "strChartName = " & strChartName
     bemb.Init Me.subChart, CurrentProject.Path & gstrBAEMB_DEMO & strChartName
 End Sub
