@@ -17,8 +17,8 @@ Begin Form
     Width =20160
     DatasheetFontHeight =11
     ItemSuffix =7
-    Right =7365
-    Bottom =12060
+    Right =7620
+    Bottom =12315
     DatasheetGridlinesColor =14806254
     OnUnload ="[Event Procedure]"
     RecSrcDt = Begin
@@ -410,8 +410,6 @@ Private Sub btnRefreshChart_Click()
 End Sub
 
 Private Sub Form_Load()
-    Dim strChartName As String
-    strChartName = "\demoChartJS\charting.html"
 
     Dim intTwips As Integer
     intTwips = 1440
@@ -421,6 +419,8 @@ Private Sub Form_Load()
 
     bemb.AllowScroll = False
 
+    Dim strChartName As String
+    strChartName = "\demoChartJS\charting.html"
     Debug.Print "demoChartJS Form_Load"
     Debug.Print , "strChartName = " & strChartName
     bemb.Init Me.subChart, CurrentProject.Path & gstrBAEMB_DEMO & strChartName

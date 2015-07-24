@@ -62,7 +62,7 @@ End Sub
 '
 '
 '20150723 - v0502 -
-    ' Added demobaembChartJS
+    ' Added demoBaembChartJS
 '20150720 - v0501 -
     ' FIXED - %001 - Turn off chart animation Ref: http://www.chartjs.org/docs/ - Global chart configuration
 '20150717 - v0501 -

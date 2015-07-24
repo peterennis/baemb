@@ -33,6 +33,7 @@ Begin Form
     PrtDevNames = Begin
     End
     OnTimer ="[Event Procedure]"
+    OnLoad ="[Event Procedure]"
     FilterOnLoad =0
     ShowPageMargins =0
     DisplayOnSharePointSite =1
@@ -177,6 +178,15 @@ Private Sub browserControl_DocumentComplete(ByVal pDisp As Object, URL As Varian
         Me.TimerInterval = WB_DOCCOMPLETE_EXIT_TIMER  '(default 100, should be way more than enough)
     End If
 
+End Sub
+
+Private Sub Form_Load()
+    Dim intTwips As Integer
+    intTwips = 1440
+    If Me.Parent.Name = "demoChartJS" Then
+        Me.Controls.Item("browserControl").Width = 5 * intTwips
+        Me.Controls.Item("browserControl").Height = 5 * intTwips
+    End If
 End Sub
 
 Private Sub Form_Timer()
