@@ -261,7 +261,7 @@ End Sub
 
 Private Sub bemb_Initialized()
     bemb.SnippetsPath = CurrentProject.Path & gstrBAEMB_DEMO & "\snippets.js"
-    Debug.Print "bemb_Initialized"
+    Debug.Print Me.Name & " bemb_Initialized"
     Debug.Print , "bemb.SnippetsPath = " & bemb.SnippetsPath
 
     addWindowResizeHandler
@@ -296,11 +296,14 @@ Public Sub RefreshChart()
 ' METHOD TWO: Load Script from Snippet
 '   |VALUE| is used to denote parameters, which we'll replace with generated data...
 
+    On Error GoTo Err_Proc
+
     Dim script As String
     Dim rst As DAO.Recordset
     Dim str As String
 
     script = bemb.GetSnippet("RefreshChartDataBuild")
+    Debug.Print Me.Name & " RefreshChart RefreshChartDataBuild"
 
     'load dataset1
     Set rst = CurrentDb.OpenRecordset("demoChartJSQuery1")
@@ -314,6 +317,7 @@ Public Sub RefreshChart()
     'trim the last comma
     str = Left(str, Len(str) - 1)
     script = Replace(script, "|DATASET1|", str)
+    Debug.Print , "|DATASET1| = " & script
 
     'load dataset2
     str = ""
@@ -328,9 +332,17 @@ Public Sub RefreshChart()
     'trim the last comma
     str = Left(str, Len(str) - 1)
     script = Replace(script, "|DATASET2|", str)
+    Debug.Print , "|DATASET2| = " & script
 
     bemb.ExecScript script
 
+Exit_Proc:
+    Exit Sub
+
+Err_Proc:
+    MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure RefreshChart of Form demoBaembPieChartJS"
+    Resume Exit_Proc
+    Resume
 End Sub
 
 Private Sub btnRefreshChart_Click()
@@ -348,7 +360,7 @@ Private Sub Form_Load()
 
     Dim strChartName As String
     strChartName = "\demoChartJS\charting.html"
-    Debug.Print "demoBaembPieChartJS Form_Load"
+    Debug.Print Me.Name & " Form_Load"
     Debug.Print , "strChartName = " & strChartName
     bemb.Init Me.subChart, CurrentProject.Path & gstrBAEMB_DEMO & strChartName
 End Sub

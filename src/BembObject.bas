@@ -42,6 +42,8 @@ Public Function GetSnippet(SnippetName As String) As String
     Dim s As String           'content of the current line
     Dim InSnippet As Boolean  'let's us know if we've found (and are inside) the snippet during the loop
 
+    On Error GoTo Err_Proc
+
     Debug.Print "BembObject GetSnippet"
     Debug.Print , SnippetName & " Me.SnippetsPath = " & Me.SnippetsPath
 
@@ -80,6 +82,13 @@ Public Function GetSnippet(SnippetName As String) As String
 
     GetSnippet = ret
 
+Exit_Proc:
+    Exit Function
+
+Err_Proc:
+    MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure GetSnippet of Class BembObject"
+    Resume Exit_Proc
+    Resume
 End Function
 
 Public Property Get SnippetsPath() As String

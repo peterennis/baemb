@@ -15,9 +15,9 @@ Begin Form
     DatasheetFontHeight =11
     ItemSuffix =1
     Left =255
-    Top =600
-    Right =18015
-    Bottom =8130
+    Top =570
+    Right =18255
+    Bottom =8490
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x6bd443b4d288e440
@@ -202,7 +202,7 @@ End Sub
 Private Sub InitJSForAccessHost()
     'load the framework script to the end of the html body
 
-    Debug.Print "InitJSForAccessHost"
+    Debug.Print Me.Name & " InitJSForAccessHost"
     Debug.Print , CurrentProject.Path
     Debug.Print , CurrentProject.Path & gstrBAEMB_DEMO
     Debug.Print , CurrentProject.Path & gstrBAEMB_DEMO & "\" & BEMB_SCRIPT_FILENAME
@@ -243,7 +243,7 @@ Private Function bembInitWaitLoop() As Boolean
     script = script & "} else {"
     script = script & "  bembData = '" & jsBEMB_INITIALIZED & "';"
     script = script & "}"
-    Debug.Print "bembInitWaitLoop"
+    Debug.Print Me.Name & " bembInitWaitLoop"
     Debug.Print , "script = " & script
 
     Me.Exec script
@@ -264,7 +264,7 @@ Public Sub AddSourcedScript(ByVal PathOrCDN As String)
 
     Dim script As String
 
-    Debug.Print "AddSourcedScript"
+    Debug.Print Me.Name & " AddSourcedScript"
     Debug.Print , "PathOrCDN = " & PathOrCDN
 
     script = "var script = document.createElement(""script"");" & _
