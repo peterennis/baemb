@@ -412,9 +412,6 @@ Private Sub btnRefreshChart_Click()
 End Sub
 
 Private Sub Form_Load()
-    Dim strChartName As String
-    strChartName = "\demoChartJS\charting.html"
-
     Dim intTwips As Integer
     intTwips = 1440
     DoCmd.MoveSize 0, 0, 14 * intTwips, 6 * intTwips
@@ -423,7 +420,9 @@ Private Sub Form_Load()
 
     bemb.AllowScroll = False
 
-    Debug.Print "demobaembChartJS Form_Load"
+    Dim strChartName As String
+    strChartName = "\demoChartJS\charting.html"
+    Debug.Print "demoBaembChartJS Form_Load"
     Debug.Print , "strChartName = " & strChartName
     bemb.Init Me.subChart, CurrentProject.Path & gstrBAEMB_DEMO & strChartName
 End Sub

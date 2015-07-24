@@ -5,6 +5,7 @@ Option Explicit
 Public Const BAEMB_DEMO_PATH = "\demo"
 Public Const BEMB_SCRIPT_PATH = "\bemb"
 Public Const BAEMB_SCRIPT_PATH = "\baemb"
+Public Const BAEMBPIE_SCRIPT_PATH = "\baembPie"
 Public gstrBAEMB_DEMO As String
 
 Public Const gstrPROJECT_BAEMB As String = "baemb"
@@ -61,8 +62,8 @@ End Sub
 '=============================================================================================================================
 '
 '
-'20150723 - v0502 -
-    ' Added demoBaembChartJS
+'20150723 - v0503 -
+    ' Added demoBaembChartJS, Ref: http://stackoverflow.com/questions/19847582/chart-js-canvas-resize
 '20150720 - v0501 -
     ' FIXED - %001 - Turn off chart animation Ref: http://www.chartjs.org/docs/ - Global chart configuration
 '20150717 - v0501 -
