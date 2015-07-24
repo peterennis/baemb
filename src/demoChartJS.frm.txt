@@ -2,6 +2,7 @@
 VersionRequired =20
 PublishOption =1
 Begin Form
+    AutoResize = NotDefault
     RecordSelectors = NotDefault
     MaxButton = NotDefault
     MinButton = NotDefault
@@ -10,6 +11,7 @@ Begin Form
     AllowDesignChanges = NotDefault
     DefaultView =0
     ScrollBars =0
+    BorderStyle =3
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridX =24
@@ -17,8 +19,8 @@ Begin Form
     Width =20160
     DatasheetFontHeight =11
     ItemSuffix =7
-    Right =7620
-    Bottom =12315
+    Right =8550
+    Bottom =8205
     DatasheetGridlinesColor =14806254
     OnUnload ="[Event Procedure]"
     RecSrcDt = Begin
@@ -116,12 +118,12 @@ Begin Form
             BackThemeColorIndex =1
             Begin
                 Begin Subform
-                    OverlapFlags =85
+                    OverlapFlags =215
                     OldBorderStyle =0
                     Left =120
                     Top =120
-                    Width =7140
-                    Height =7860
+                    Width =8220
+                    Height =4200
                     BorderColor =10921638
                     Name ="subChart"
                     GUID = Begin
@@ -133,57 +135,14 @@ Begin Form
 
                     LayoutCachedLeft =120
                     LayoutCachedTop =120
-                    LayoutCachedWidth =7260
-                    LayoutCachedHeight =7980
+                    LayoutCachedWidth =8340
+                    LayoutCachedHeight =4320
                 End
                 Begin Subform
                     OverlapFlags =215
-                    Left =60
-                    Top =8460
-                    Width =3600
-                    Height =3420
-                    TabIndex =1
-                    BorderColor =10921638
-                    Name ="subDataset1"
-                    SourceObject ="Form.demoChartJSSub1"
-                    GUID = Begin
-                        0x65aa38c3430dc249b7faf26ab4ac8ef9
-                    End
-                    GridlineColor =10921638
-                    VerticalAnchor =1
-
-                    LayoutCachedLeft =60
-                    LayoutCachedTop =8460
-                    LayoutCachedWidth =3660
-                    LayoutCachedHeight =11880
-                    Begin
-                        Begin Label
-                            OverlapFlags =93
-                            Left =60
-                            Top =8220
-                            Width =930
-                            Height =315
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="Label4"
-                            Caption ="Dataset 1"
-                            GUID = Begin
-                                0xafddd5bf13ab614fad831028a46b1493
-                            End
-                            GridlineColor =10921638
-                            VerticalAnchor =1
-                            LayoutCachedLeft =60
-                            LayoutCachedTop =8220
-                            LayoutCachedWidth =990
-                            LayoutCachedHeight =8535
-                        End
-                    End
-                End
-                Begin Subform
-                    OverlapFlags =215
-                    Left =3720
-                    Top =8460
-                    Width =3540
+                    Left =3960
+                    Top =4500
+                    Width =3456
                     Height =3420
                     TabIndex =2
                     BorderColor =10921638
@@ -195,15 +154,15 @@ Begin Form
                     GridlineColor =10921638
                     VerticalAnchor =1
 
-                    LayoutCachedLeft =3720
-                    LayoutCachedTop =8460
-                    LayoutCachedWidth =7260
-                    LayoutCachedHeight =11880
+                    LayoutCachedLeft =3960
+                    LayoutCachedTop =4500
+                    LayoutCachedWidth =7416
+                    LayoutCachedHeight =7920
                     Begin
                         Begin Label
                             OverlapFlags =93
-                            Left =3720
-                            Top =8220
+                            Left =3960
+                            Top =4260
                             Width =930
                             Height =315
                             BorderColor =8355711
@@ -215,10 +174,53 @@ Begin Form
                             End
                             GridlineColor =10921638
                             VerticalAnchor =1
-                            LayoutCachedLeft =3720
-                            LayoutCachedTop =8220
-                            LayoutCachedWidth =4650
-                            LayoutCachedHeight =8535
+                            LayoutCachedLeft =3960
+                            LayoutCachedTop =4260
+                            LayoutCachedWidth =4890
+                            LayoutCachedHeight =4575
+                        End
+                    End
+                End
+                Begin Subform
+                    OverlapFlags =215
+                    Left =180
+                    Top =4500
+                    Width =3456
+                    Height =3420
+                    TabIndex =1
+                    BorderColor =10921638
+                    Name ="subDataset1"
+                    SourceObject ="Form.demoChartJSSub1"
+                    GUID = Begin
+                        0x65aa38c3430dc249b7faf26ab4ac8ef9
+                    End
+                    GridlineColor =10921638
+                    VerticalAnchor =1
+
+                    LayoutCachedLeft =180
+                    LayoutCachedTop =4500
+                    LayoutCachedWidth =3636
+                    LayoutCachedHeight =7920
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =180
+                            Top =4260
+                            Width =960
+                            Height =315
+                            BorderColor =8355711
+                            ForeColor =8355711
+                            Name ="Label4"
+                            Caption ="Dataset 1"
+                            GUID = Begin
+                                0xafddd5bf13ab614fad831028a46b1493
+                            End
+                            GridlineColor =10921638
+                            VerticalAnchor =1
+                            LayoutCachedLeft =180
+                            LayoutCachedTop =4260
+                            LayoutCachedWidth =1140
+                            LayoutCachedHeight =4575
                         End
                     End
                 End
@@ -413,7 +415,7 @@ Private Sub Form_Load()
 
     Dim intTwips As Integer
     intTwips = 1440
-    DoCmd.MoveSize 0, 0, 5.5 * intTwips, 9 * intTwips
+    DoCmd.MoveSize 0, 0, 6 * intTwips, 6 * intTwips
 
     Set bemb = New BembObject
 

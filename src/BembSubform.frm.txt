@@ -7,6 +7,7 @@ Begin Form
     DividingLines = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =0
+    ScrollBars =0
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridX =24
@@ -16,8 +17,8 @@ Begin Form
     ItemSuffix =1
     Left =255
     Top =570
-    Right =18255
-    Bottom =8490
+    Right =18030
+    Bottom =7995
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x6bd443b4d288e440
@@ -184,8 +185,8 @@ Private Sub Form_Load()
     Dim intTwips As Integer
     intTwips = 1440
     If Me.Parent.Name = "demoChartJS" Then
-        Me.Controls.Item("browserControl").Width = 5 * intTwips
-        Me.Controls.Item("browserControl").Height = 5 * intTwips
+        Me.Controls.Item("browserControl").Width = 5.5 * intTwips
+        Me.Controls.Item("browserControl").Height = 4 * intTwips
     End If
 End Sub
 

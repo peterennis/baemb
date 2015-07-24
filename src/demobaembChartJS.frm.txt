@@ -116,7 +116,7 @@ Begin Form
             BackThemeColorIndex =1
             Begin
                 Begin Subform
-                    OverlapFlags =223
+                    OverlapFlags =85
                     OldBorderStyle =0
                     Left =120
                     Top =120
@@ -135,94 +135,6 @@ Begin Form
                     LayoutCachedTop =120
                     LayoutCachedWidth =18120
                     LayoutCachedHeight =8040
-                End
-                Begin Subform
-                    Visible = NotDefault
-                    OverlapFlags =247
-                    Left =60
-                    Top =4620
-                    Width =3600
-                    Height =3420
-                    TabIndex =1
-                    BorderColor =10921638
-                    Name ="subDataset1"
-                    SourceObject ="Form.demoChartJSSub1"
-                    GUID = Begin
-                        0x65aa38c3430dc249b7faf26ab4ac8ef9
-                    End
-                    GridlineColor =10921638
-                    VerticalAnchor =1
-
-                    LayoutCachedLeft =60
-                    LayoutCachedTop =4620
-                    LayoutCachedWidth =3660
-                    LayoutCachedHeight =8040
-                    Begin
-                        Begin Label
-                            OverlapFlags =93
-                            Left =60
-                            Top =4380
-                            Width =930
-                            Height =315
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="Label4"
-                            Caption ="Dataset 1"
-                            GUID = Begin
-                                0xafddd5bf13ab614fad831028a46b1493
-                            End
-                            GridlineColor =10921638
-                            VerticalAnchor =1
-                            LayoutCachedLeft =60
-                            LayoutCachedTop =4380
-                            LayoutCachedWidth =990
-                            LayoutCachedHeight =4695
-                        End
-                    End
-                End
-                Begin Subform
-                    Visible = NotDefault
-                    OverlapFlags =247
-                    Left =3720
-                    Top =4620
-                    Width =3540
-                    Height =3420
-                    TabIndex =2
-                    BorderColor =10921638
-                    Name ="subDataset2"
-                    SourceObject ="Form.demoChartJSSub2"
-                    GUID = Begin
-                        0x28e7c7c8f0bbbe4fa4bd68e739db5cd1
-                    End
-                    GridlineColor =10921638
-                    VerticalAnchor =1
-
-                    LayoutCachedLeft =3720
-                    LayoutCachedTop =4620
-                    LayoutCachedWidth =7260
-                    LayoutCachedHeight =8040
-                    Begin
-                        Begin Label
-                            OverlapFlags =93
-                            Left =3720
-                            Top =4380
-                            Width =930
-                            Height =315
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="Label6"
-                            Caption ="Dataset 2"
-                            GUID = Begin
-                                0x8cbe68861a13f84e88cc364810bd68a9
-                            End
-                            GridlineColor =10921638
-                            VerticalAnchor =1
-                            LayoutCachedLeft =3720
-                            LayoutCachedTop =4380
-                            LayoutCachedWidth =4650
-                            LayoutCachedHeight =4695
-                        End
-                    End
                 End
             End
         End
