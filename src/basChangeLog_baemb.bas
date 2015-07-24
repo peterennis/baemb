@@ -62,11 +62,7 @@ End Sub
 '=============================================================================================================================
 '
 '
-'20150723 - v0503 -
-    ' Added demoBaembChartJS, Ref: http://stackoverflow.com/questions/19847582/chart-js-canvas-resize
-'20150720 - v0501 -
-    ' FIXED - %001 - Turn off chart animation Ref: http://www.chartjs.org/docs/ - Global chart configuration
-'20150717 - v0501 -
-    ' Export new release to review and test fixes for #1 and #2 errors on github
-'20150717 - v0500 -
-    ' Initial setup for code export
+'20150723 - v0503 - Added demoBaembChartJS, Ref: http://stackoverflow.com/questions/19847582/chart-js-canvas-resize
+'20150720 - v0501 - FIXED - %001 - Turn off chart animation Ref: http://www.chartjs.org/docs/ - Global chart configuration
+'20150717 - v0501 - Export new release to review and test fixes for #1 and #2 errors on github
+'20150717 - v0500 - Initial setup for code export
