@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://jsfiddle.net/hohenheim/6R7mu/6/ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>NVD3 Bar Chart</title>
+	<link href="nv.d3.css" rel="stylesheet" type="text/css">
+	<script language="javascript" type="text/javascript" src="jquery-2.1.4.min.js"></script>
+	<script language="javascript" type="text/javascript" src="d3.min.js"></script>
+	<script language="javascript" type="text/javascript" src="nv.d3.min.js"></script>
+	<script type="text/javascript">
+$(function(){
+    drawChart();
+});        
+    
+//redraw
+$('#generate').click(function () {
+    $('#Chart svg').empty();
+    drawChart();
+});
+
+
+function drawChart() {
+    
+    
+data1=[
+{"date": 1396828800, "impressions": 49145385},
+{"date": 1396915200, "impressions": 46704447},
+{"date": 1397001600, "impressions": 47181000},
+{"date": 1397088000, "impressions": 47337965},
+{"date": 1397174400, "impressions": 51129266},
+{"date": 1397260800, "impressions": 60547397},
+{"date": 1397347200, "impressions": 62217077},
+{"date": 1397433600, "impressions": 49145385},
+{"date": 1397520000, "impressions": 46704447},
+{"date": 1397606400, "impressions": 47181000},
+{"date": 1397692800, "impressions": 47337965},
+{"date": 1397779200, "impressions": 51129266},
+{"date": 1397865600, "impressions": 60547397},
+{"date": 1397952000, "impressions": 62217077}]
+        
+data1 = data1.map(function(n) {return {"x" : n.date, "y" : n.impressions}});
+
+data3=[{"key":"stream1",
+        "values": data1,
+       "yAxis": "1"}];
+
+    //SAMPLE DATA BELOW
+    data5=[{"values": [{"y": 0.0092927830074825014, "x": 0}, {"y": 0.0085309558291093417, "x": 1}, {"y": 0.007889814144339851, "x": 2}, {"y": 0.011118151098237992, "x": 3}, {"y": 0.027689777938691769, "x": 4}, {"y": 0.051359220371711319, "x": 5}, {"y": 0.045679459328988654, "x": 6}, {"y": 0.034523594013999515, "x": 7}, {"y": 0.031657313540912384, "x": 8}, {"y": 0.032894339850349986, "x": 9}, {"y": 0.042187122857832486, "x": 10}, {"y": 0.042881064446053586, "x": 11}, {"y": 0.034780050687907314, "x": 12}, {"y": 0.035481535119478637, "x": 13}, {"y": 0.042111694424330194, "x": 14}, {"y": 0.060614289162442672, "x": 15}, {"y": 0.074432778180062761, "x": 16}, {"y": 0.083469104513637454, "x": 17}, {"y": 0.090597091479604153, "x": 18}, {"y": 0.084962587496982864, "x": 19}, {"y": 0.066686278059377269, "x": 20}, {"y": 0.045769973449191405, "x": 21}, {"y": 0.023292300265508086, "x": 22}, {"y": 0.0120987207337678, "x": 23}], "key": "FR", "yAxis": "1"}, {"values": [{"y": 0.0053325833341703859, "x": 0}, {"y": 0.0046651733647618699, "x": 1}, {"y": 0.0065714212372530835, "x": 2}, {"y": 0.014391725009235481, "x": 3}, {"y": 0.037191922776871902, "x": 4}, {"y": 0.044022272296571095, "x": 5}, {"y": 0.035603754906523545, "x": 6}, {"y": 0.033636123173969669, "x": 7}, {"y": 0.032907329344498498, "x": 8}, {"y": 0.035008889499007254, "x": 9}, {"y": 0.041852631860901941, "x": 10}, {"y": 0.047978741095155028, "x": 11}, {"y": 0.050341461672475815, "x": 12}, {"y": 0.0516695851901951, "x": 13}, {"y": 0.057098150560099821, "x": 14}, {"y": 0.062849260212879232, "x": 15}, {"y": 0.070372689316194961, "x": 16}, {"y": 0.078874911969964323, "x": 17}, {"y": 0.083392764070575817, "x": 18}, {"y": 0.078944108321307674, "x": 19}, {"y": 0.064748811664272696, "x": 20}, {"y": 0.037360449374498464, "x": 21}, {"y": 0.016761142007654009, "x": 22}, {"y": 0.008424097740962342, "x": 23}], "key": "DE", "yAxis": "1"}];
+    
+    nv.addGraph(function() {
+            var chart = nv.models.multiBarChart();
+            chart.color(d3.scale.category10().range());
+            chart.xAxis
+                .axisLabel('Date')
+                .tickFormat(d3.format(',f'));
+            chart.yAxis
+                //.axisLabel('% Impressions')
+                .tickFormat(d3.format(',f'));
+            chart.showLegend(true);
+            d3.select('#Chart svg')
+                .datum(data3)
+                .transition().duration(500)
+                .attr('height', 350)
+                .call(chart);
+    
+            nv.utils.windowResize(chart.update)
+            
+            return chart;
+    });
+    
+};
+
+$("#date1, #date2").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    onSelect: function (selectedDate) {
+        var option = this.id == "abc" ? "minDate" : "maxDate",
+            instance = $(this).data("datepicker"),
+            date = $.datepicker.parseDate(
+            instance.settings.dateFormat || $.datepicker._defaults.dateFormat,
+            selectedDate, instance.settings);
+        dates.not(this).datepicker("option", option, date);
+    }
+});
+	</script>
+</head>
+
+<body>
+
+	<div>
+		<h1 align="center">Data Visualization</h1>
+
+	</div>
+	<div>
+		<SELECT id="list1">
+			<OPTION VALUE="0">-Marketplace-</OPTION>
+			<OPTION VALUE="1">1</OPTION>
+		</SELECT>
+		<SELECT id="list2">
+			<OPTION VALUE="0">-Device Type-</OPTION>
+			<OPTION VALUE="1">1</OPTION>
+		</SELECT>
+		<SELECT id="list3">
+			<OPTION VALUE="0">-Placement-</OPTION>
+			<OPTION VALUE="1">1</OPTION>
+		</SELECT>
+		<button id="generate">Generate</button>
+	</div>
+	<div>
+		<label for="date1">Date:</label>
+		<input type="text" id="date1" name="date1" value="01/01/2014" />
+		<label for="date2">to</label>
+		<input type="text" id="date2" name="date2" value="" />
+	</div>
+	<div style="height: 40px;">&nbsp;</div>    
+    
+	<div id="Chart"><svg style="height:350px;"></svg></div>
+
+</body>
+</html>
