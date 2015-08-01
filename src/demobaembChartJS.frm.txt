@@ -236,100 +236,100 @@ Public Sub bembEvent_WindowResized()
 End Sub
 
 Public Sub RefreshChart()
-' METHOD ONE: Build script in VBA
-'
-'   Dim script As String
-'   Dim rs As DAO.Recordset
-'
-'   script = "refreshChart({"
-'   script = script & " labels: ['January','February','March','April','May','June','July'],"
-'   script = script & " datasets: [{ label: 'My First dataset', fillColor: 'rgba(220,220,220,0.2)',"
-'   script = script & "strokeColor:'rgba(220,220,220,1)',pointColor:'rgba(220,220,220,1)',pointStrokeColor:'#fff',"
-'   script = script & "pointHighlightFill:'#fff',pointHighlightStroke:'rgba(220,220,220,1)',"
-'   script = script & "data : ["
-'
-'   Set rs = CurrentDb.OpenRecordset("demoChartJSQuery1")
-'
-'   While Not rs.EOF
-'       script = script & rs("TotalPerMonth") & ","
-'       rs.MoveNext
-'   Wend
-'   rs.Close
-'   'trim the last comma
-'   script = Left(script, Len(script) - 1)
-'
-'   script = script & "]},{"
-'   script = script & "label: 'My Second dataset',fillColor:'rgba(151,187,205,0.2)',strokeColor:'rgba(151,187,205,1)',"
-'   script = script & "pointColor:'rgba(151,187,205,1)',pointStrokeColor:'#fff',pointHighlightFill:'#fff',pointHighlightStroke:'rgba(151,187,205,1)',"
-'   script = script & "data: ["
-'
-'   Set rs = CurrentDb.OpenRecordset("demoChartJSQuery2")
-'
-'   While Not rs.EOF
-'       script = script & rs("TotalPerMonth") & ","
-'       rs.MoveNext
-'   Wend
-'   rs.Close
-'
-'   'trim the last comma
-'   script = Left(script, Len(script) - 1)
-'
-'   script = script & "]}]"
-'
-'   script = script & "});"
-'
-'   bemb.ExecScript script
+      ' METHOD ONE: Build script in VBA
+      '
+      '   Dim script As String
+      '   Dim rs As DAO.Recordset
+      '
+      '   script = "refreshChart({"
+      '   script = script & " labels: ['January','February','March','April','May','June','July'],"
+      '   script = script & " datasets: [{ label: 'My First dataset', fillColor: 'rgba(220,220,220,0.2)',"
+      '   script = script & "strokeColor:'rgba(220,220,220,1)',pointColor:'rgba(220,220,220,1)',pointStrokeColor:'#fff',"
+      '   script = script & "pointHighlightFill:'#fff',pointHighlightStroke:'rgba(220,220,220,1)',"
+      '   script = script & "data : ["
+      '
+      '   Set rs = CurrentDb.OpenRecordset("demoChartJSQuery1")
+      '
+      '   While Not rs.EOF
+      '       script = script & rs("TotalPerMonth") & ","
+      '       rs.MoveNext
+      '   Wend
+      '   rs.Close
+      '   'trim the last comma
+      '   script = Left(script, Len(script) - 1)
+      '
+      '   script = script & "]},{"
+      '   script = script & "label: 'My Second dataset',fillColor:'rgba(151,187,205,0.2)',strokeColor:'rgba(151,187,205,1)',"
+      '   script = script & "pointColor:'rgba(151,187,205,1)',pointStrokeColor:'#fff',pointHighlightFill:'#fff',pointHighlightStroke:'rgba(151,187,205,1)',"
+      '   script = script & "data: ["
+      '
+      '   Set rs = CurrentDb.OpenRecordset("demoChartJSQuery2")
+      '
+      '   While Not rs.EOF
+      '       script = script & rs("TotalPerMonth") & ","
+      '       rs.MoveNext
+      '   Wend
+      '   rs.Close
+      '
+      '   'trim the last comma
+      '   script = Left(script, Len(script) - 1)
+      '
+      '   script = script & "]}]"
+      '
+      '   script = script & "});"
+      '
+      '   bemb.ExecScript script
 
-' METHOD TWO: Load Script from Snippet
-'   |VALUE| is used to denote parameters, which we'll replace with generated data...
+      ' METHOD TWO: Load Script from Snippet
+      '   |VALUE| is used to denote parameters, which we'll replace with generated data...
 
-    On Error GoTo Err_Proc
+10        On Error GoTo Err_Proc
 
-    Dim script As String
-    Dim rs As DAO.Recordset
-    Dim s As String
+          Dim script As String
+          Dim rs As DAO.Recordset
+          Dim s As String
 
-    script = bemb.GetSnippet("RefreshChartDataBuild")
-    Debug.Print Me.Name & " RefreshChart RefreshChartDataBuild"
+20        script = bemb.GetSnippet("RefreshChartDataBuild")
+30        Debug.Print Me.Name & " RefreshChart RefreshChartDataBuild"
 
-    'load dataset1
-    Set rs = CurrentDb.OpenRecordset("demoChartJSQuery1")
+          'load dataset1
+40        Set rs = CurrentDb.OpenRecordset("demoChartJSQuery1")
 
-    While Not rs.EOF
-        s = s & rs("TotalPerMonth") & ","
-        rs.MoveNext
-    Wend
-    rs.Close
+50        While Not rs.EOF
+60            s = s & rs("TotalPerMonth") & ","
+70            rs.MoveNext
+80        Wend
+90        rs.Close
 
-    'trim the last comma
-    s = Left(s, Len(s) - 1)
-    script = Replace(script, "|DATASET1|", s)
-    Debug.Print , "|DATASET1| = " & script
+          'trim the last comma
+100       s = Left(s, Len(s) - 1)
+110       script = Replace(script, "|DATASET1|", s)
+120       Debug.Print , "|DATASET1| = " & script
 
-    'load dataset2
-    s = ""
-    Set rs = CurrentDb.OpenRecordset("demoChartJSQuery2")
+          'load dataset2
+130       s = ""
+140       Set rs = CurrentDb.OpenRecordset("demoChartJSQuery2")
 
-    While Not rs.EOF
-        s = s & rs("TotalPerMonth") & ","
-        rs.MoveNext
-    Wend
-    rs.Close
+150       While Not rs.EOF
+160           s = s & rs("TotalPerMonth") & ","
+170           rs.MoveNext
+180       Wend
+190       rs.Close
 
-    'trim the last comma
-    s = Left(s, Len(s) - 1)
-    script = Replace(script, "|DATASET2|", s)
-    Debug.Print , "|DATASET2| = " & script
+          'trim the last comma
+200       s = Left(s, Len(s) - 1)
+210       script = Replace(script, "|DATASET2|", s)
+220       Debug.Print , "|DATASET2| = " & script
 
-    bemb.ExecScript script
+230       bemb.ExecScript script
 
 Exit_Proc:
-    Exit Sub
+240       Exit Sub
 
 Err_Proc:
-    MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure RefreshChart of Form demoBaembChartJS"
-    Resume Exit_Proc
-    Resume
+250       MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure RefreshChart of Form demoBaembChartJS"
+260       Resume Exit_Proc
+270       Resume
 End Sub
 
 Private Sub btnRefreshChart_Click()

@@ -175,7 +175,7 @@ Inherited: False;
 ---
 Name: UseAppIconForFrmRpt
 Type: dbBoolean
-Value: False
+Value: True
 Inherited: False;
 ---
 Name: AllowDatasheetSchema
@@ -246,5 +246,10 @@ Inherited: False;
 Name: AppTitle
 Type: dbText
 Value: baemb
+Inherited: False;
+---
+Name: AppIcon
+Type: dbText
+Value: C:\ae\baemb\Baemb64.ico
 Inherited: False;
 ---

@@ -9,8 +9,8 @@ Public Const BAEMBPIE_SCRIPT_PATH = "\baembPie"
 Public gstrBAEMB_DEMO As String
 
 Public Const gstrPROJECT_BAEMB As String = "baemb"
-Private Const mstrVERSION_BAEMB As String = "0.5.0.4"
-Private Const mstrDATE_BAEMB As String = "July 24, 2015"
+Private Const mstrVERSION_BAEMB As String = "0.5.0.5"
+Private Const mstrDATE_BAEMB As String = "August 1, 2015"
 
 Public Const THE_SOURCE_FOLDER = "C:\ae\baemb\src\"
 Public Const THE_BACK_END_SOURCE_FOLDER = "C:\ae\baemb\srcbe\"
@@ -55,9 +55,14 @@ End Sub
 
 '=============================================================================================================================
 ' Tasks:
-' %005 -
-' %004 -
-' %003 -
+' %010 -
+' %009 -
+' %008 -
+' %007 - Performance metrics and testing framework
+' %006 - Load latest aegit and test export with relative paths
+' %005 - Consider Msi installer package with SHA signature
+' %004 - Create muilti resolution project icon and branding - the baemb pronunciation and potential disruption effect
+' %003 - http://clipartist.net/svg/bomb-scalable-vector-graphics-svg/ - add project icon
 ' %002 - Add debug tracking info
 '=============================================================================================================================
 '

@@ -15,10 +15,10 @@ Begin Form
     Width =17520
     DatasheetFontHeight =11
     ItemSuffix =1
-    Left =255
-    Top =570
-    Right =18030
-    Bottom =7995
+    Left =150
+    Top =480
+    Right =18150
+    Bottom =8535
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x6bd443b4d288e440
@@ -291,7 +291,21 @@ Public Property Get bembData() As String
 End Property
 
 Public Sub Exec(script As String)
-    doc.parentWindow.ExecScript script
+
+10        On Error GoTo Err_Proc
+
+20        Debug.Print Me.Name & " Exec"
+30        Debug.Print , "This is found in Form_Timer: Set doc = Me.browserControl.Object.Document"
+40        Debug.Print "Me.browserControl.Name = " & Me.browserControl.Name
+50        doc.parentWindow.ExecScript script
+
+Exit_Proc:
+60        Exit Sub
+
+Err_Proc:
+70        MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure Exec of " & Me.Name
+80        Resume Exit_Proc
+90        Resume
 End Sub
 
 Public Property Get jsBembData() As String

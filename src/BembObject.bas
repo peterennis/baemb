@@ -247,6 +247,7 @@ Public Sub AddEventHandler( _
 End Sub
 
 Public Sub ExecScript(script As String)
+    Debug.Print "BembObject ExecScript"
     mHostForm.Exec script
 End Sub
 
