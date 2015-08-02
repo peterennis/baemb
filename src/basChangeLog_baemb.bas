@@ -55,9 +55,14 @@ End Sub
 
 '=============================================================================================================================
 ' Tasks:
-' %010 -
-' %009 -
-' %008 -
+' %015 -
+' %014 -
+' %013 -
+' %012 -
+' %011 -
+' %009 - Ref: https://social.msdn.microsoft.com/Forums/office/en-US/8bf1d5ba-533c-4f94-8140-38bf958c38e3/navigate-method-missing-from-web-browser-control
+'           Me.WebBrowser0.ControlSource = "=(""www.bing.ca"")"
+' %008 - WebBrowserControl.Object Property, Ref: https://msdn.microsoft.com/EN-US/library/office/ff835009.aspx
 ' %007 - Performance metrics and testing framework
 ' %006 - Load latest aegit and test export with relative paths
 ' %005 - Consider Msi installer package with SHA signature
@@ -67,6 +72,8 @@ End Sub
 '=============================================================================================================================
 '
 '
+'20150801 - v0505
+    ' FIXED - %010 - Add web broswer test form
 '20150723 - v0503 - Added demoBaembChartJS, Ref: http://stackoverflow.com/questions/19847582/chart-js-canvas-resize
 '20150720 - v0501 - FIXED - %001 - Turn off chart animation Ref: http://www.chartjs.org/docs/ - Global chart configuration
 '20150717 - v0501 - Export new release to review and test fixes for #1 and #2 errors on github

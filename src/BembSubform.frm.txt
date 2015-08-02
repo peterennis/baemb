@@ -296,16 +296,19 @@ Public Sub Exec(script As String)
 
 20        Debug.Print Me.Name & " Exec"
 30        Debug.Print , "This is found in Form_Timer: Set doc = Me.browserControl.Object.Document"
-40        Debug.Print "Me.browserControl.Name = " & Me.browserControl.Name
-50        doc.parentWindow.ExecScript script
+40        Debug.Print , "Me.browserControl.Name = " & Me.browserControl.Name
+50        Debug.Print , "Me.browserControl.Object.Name = " & Me.browserControl.Object.Name
+60        Debug.Print , "Me.browserControl.Object.Document.Name = " & Me.browserControl.Object.Document.Name
+70        doc.parentWindow.ExecScript script
+80        Debug.Print , "Me.browserControl.Object.Name = " & Me.browserControl.Object.Name
 
 Exit_Proc:
-60        Exit Sub
+90        Exit Sub
 
 Err_Proc:
-70        MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure Exec of " & Me.Name
-80        Resume Exit_Proc
-90        Resume
+100       MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure Exec of " & Me.Name
+110       Resume Exit_Proc
+120       Resume
 End Sub
 
 Public Property Get jsBembData() As String
