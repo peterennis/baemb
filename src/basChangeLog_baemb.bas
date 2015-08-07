@@ -67,13 +67,13 @@ End Sub
 ' %006 - Load latest aegit and test export with relative paths
 ' %005 - Consider Msi installer package with SHA signature
 ' %004 - Create muilti resolution project icon and branding - the baemb pronunciation and potential disruption effect
-' %003 - http://clipartist.net/svg/bomb-scalable-vector-graphics-svg/ - add project icon
 ' %002 - Add debug tracking info
 '=============================================================================================================================
 '
 '
-'20150801 - v0505
-    ' FIXED - %010 - Add web broswer test form
+'20150806 - v0506 -
+    ' FIXED - %003 - http://clipartist.net/svg/bomb-scalable-vector-graphics-svg/ - add project icon
+'20150801 - v0505 - FIXED - %010 - Add web broswer test form
 '20150723 - v0503 - Added demoBaembChartJS, Ref: http://stackoverflow.com/questions/19847582/chart-js-canvas-resize
 '20150720 - v0501 - FIXED - %001 - Turn off chart animation Ref: http://www.chartjs.org/docs/ - Global chart configuration
 '20150717 - v0501 - Export new release to review and test fixes for #1 and #2 errors on github

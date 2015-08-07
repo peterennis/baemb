@@ -249,6 +249,7 @@ Private Function bembInitWaitLoop() As Boolean
 
     Me.Exec script
 
+'''    Debug.Print , "Me.bembData = " & Me.bembData
     While Me.bembData = jsBEMB_NOT_INITIALIZED And InitWaitCount < MAX_SCRIPT_INIT_WAIT_ITERATIONS
         InitWaitCount = InitWaitCount + 1
         Me.Exec script
@@ -287,18 +288,29 @@ Public Property Get BrowserControlName() As String
 End Property
 
 Public Property Get bembData() As String
+    Debug.Print "Get bembData"
     bembData = doc.script.bembData
 End Property
 
 Public Sub Exec(script As String)
 
     On Error GoTo Err_Proc
+    Static varStatic As Variant
 
-    Debug.Print Me.Name & " Exec"
-    Debug.Print , "This is found in Form_Timer: Set doc = Me.browserControl.Object.Document"
-    Debug.Print , "Me.browserControl.Name = " & Me.browserControl.Name
-    Debug.Print , "Me.browserControl.Object.Name = " & Me.browserControl.Object.Name
-    Debug.Print , "Me.browserControl.Parent.Name = " & Me.browserControl.Object.Parent.Name
+    If IsEmpty(varStatic) Then
+        Debug.Print Me.Name & " Exec"
+        Debug.Print , "This is found in Form_Timer: Set doc = Me.browserControl.Object.Document"
+        Debug.Print , "Me.browserControl.Name = " & Me.browserControl.Name
+        Debug.Print , "Me.browserControl.Object.Name = " & Me.browserControl.Object.Name
+        Debug.Print , "Me.browserControl.Parent.Name = " & Me.browserControl.Object.Parent.Name
+        Debug.Print , "Me.browserControl.ControlSource = " & Me.browserControl.ControlSource
+        Debug.Print , "Me.browserControl.Visible = " & Me.browserControl.Visible
+        Debug.Print , "doc.parentWindow.Name = " & doc.parentWindow.Name
+        varStatic = 1
+    Else
+        Debug.Print Me.Name & " Exec"
+    End If
+
     doc.parentWindow.ExecScript script
 
 Exit_Proc:
