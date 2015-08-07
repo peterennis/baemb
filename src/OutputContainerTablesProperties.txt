@@ -5,8 +5,8 @@
               Permissions    1048575 
               AllPermissions               1048575 
               Container     Tables
-              DateCreated   2/22/2015
-              LastUpdated   7/22/2015
+              DateCreated   DateCreated
+              LastUpdated   LastUpdated
               RecordLocks    0 
               ODBCTimeout    60 
               OrderByOn     False
@@ -22,8 +22,8 @@
               Permissions    1048575 
               AllPermissions               1048575 
               Container     Tables
-              DateCreated   2/22/2015
-              LastUpdated   7/22/2015
+              DateCreated   DateCreated
+              LastUpdated   LastUpdated
               RecordLocks    0 
               ODBCTimeout    60 
               OrderByOn     False
@@ -39,8 +39,8 @@
               Permissions    1048319 
               AllPermissions               1048319 
               Container     Tables
-              DateCreated   2/22/2015
-              LastUpdated   7/22/2015
+              DateCreated   DateCreated
+              LastUpdated   LastUpdated
               Orientation    0 
               OrderByOn     False
               DefaultView    2 
@@ -67,8 +67,8 @@
               Permissions    1048319 
               AllPermissions               1048319 
               Container     Tables
-              DateCreated   2/22/2015
-              LastUpdated   7/22/2015
+              DateCreated   DateCreated
+              LastUpdated   LastUpdated
               Orientation    0 
               OrderByOn     False
               DefaultView    2 

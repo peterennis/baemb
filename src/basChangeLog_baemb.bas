@@ -9,13 +9,13 @@ Public Const BAEMBPIE_SCRIPT_PATH = "\baembPie"
 Public gstrBAEMB_DEMO As String
 
 Public Const gstrPROJECT_BAEMB As String = "baemb"
-Private Const mstrVERSION_BAEMB As String = "0.5.0.5"
-Private Const mstrDATE_BAEMB As String = "August 1, 2015"
+Private Const mstrVERSION_BAEMB As String = "0.5.0.6"
+Private Const mstrDATE_BAEMB As String = "August 6, 2015"
 
-Public Const THE_SOURCE_FOLDER = "C:\ae\baemb\src\"
-Public Const THE_BACK_END_SOURCE_FOLDER = "C:\ae\baemb\srcbe\"
-Public Const THE_XML_FOLDER = "C:\ae\baemb\src\xml\"
-Public Const THE_BACK_END_XML_FOLDER = "C:\ae\baemb\srcbe\xml\"
+Public Const THE_SOURCE_FOLDER = ".\src\"
+Public Const THE_BACK_END_SOURCE_FOLDER = ".\srcbe\"
+Public Const THE_XML_FOLDER = ".\src\xml\"
+Public Const THE_BACK_END_XML_FOLDER = ".\srcbe\xml\"
 Public Const THE_BACK_END_DB1 = "NONE"
 '
 
@@ -59,7 +59,7 @@ End Sub
 ' %014 -
 ' %013 -
 ' %012 -
-' %011 -
+' %011 - Ref: http://blog.nkadesign.com/2013/vba-unicode-strings-and-the-windows-api/
 ' %009 - Ref: https://social.msdn.microsoft.com/Forums/office/en-US/8bf1d5ba-533c-4f94-8140-38bf958c38e3/navigate-method-missing-from-web-browser-control
 '           Me.WebBrowser0.ControlSource = "=(""www.bing.ca"")"
 ' %008 - WebBrowserControl.Object Property, Ref: https://msdn.microsoft.com/EN-US/library/office/ff835009.aspx

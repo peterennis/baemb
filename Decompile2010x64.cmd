@@ -39,7 +39,7 @@ REM When the before / after file size are finally the same, the decompile.cmd sc
 
 REM Support for multiple database files within the one directory
 REM Simply unREM the correct LOC to decompile that database file
-SET DBfile=baemb.v0.5.0.1.accdb
+SET DBfile=baemb.v0.5.0.6.accdb
 SET AccessPath="C:\Program Files (x86)\Microsoft Office\Office14\MSACCESS.EXE"
 
 ECHO.

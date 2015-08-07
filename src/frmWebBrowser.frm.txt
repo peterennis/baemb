@@ -1,7 +1,8 @@
-ÿþVersion =20
+Version =20
 VersionRequired =20
 PublishOption =1
 Begin Form
+    RecordSelectors = NotDefault
     DividingLines = NotDefault
     AllowDesignChanges = NotDefault
     DefaultView =0
@@ -9,11 +10,11 @@ Begin Form
     DatasheetGridlinesBehavior =3
     GridX =24
     GridY =24
-    Width =8884
+    Width =10800
     DatasheetFontHeight =11
     ItemSuffix =2
     Top =600
-    Right =9165
+    Right =10800
     Bottom =9015
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
@@ -96,9 +97,9 @@ Begin Form
             Begin
                 Begin WebBrowser
                     OverlapFlags =85
-                    Left =540
+                    Left =360
                     Top =420
-                    Width =7440
+                    Width =10080
                     Height =6480
                     AutoActivate =1
                     BorderColor =10921638
@@ -110,14 +111,15 @@ Begin Form
                     End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =540
+                    LayoutCachedLeft =360
                     LayoutCachedTop =420
-                    LayoutCachedWidth =7980
+                    LayoutCachedWidth =10440
                     LayoutCachedHeight =6900
+                    ScrollBarsVisible =1
                 End
                 Begin CommandButton
                     OverlapFlags =85
-                    Left =540
+                    Left =360
                     Top =7200
                     Width =1626
                     Height =486
@@ -132,9 +134,9 @@ Begin Form
                     End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =540
+                    LayoutCachedLeft =360
                     LayoutCachedTop =7200
-                    LayoutCachedWidth =2166
+                    LayoutCachedWidth =1986
                     LayoutCachedHeight =7686
                     BackColor =14136213
                     BorderColor =14136213
