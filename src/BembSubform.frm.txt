@@ -17,8 +17,8 @@ Begin Form
     ItemSuffix =1
     Left =150
     Top =480
-    Right =18150
-    Bottom =8535
+    Right =8370
+    Bottom =4680
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x6bd443b4d288e440
@@ -292,23 +292,22 @@ End Property
 
 Public Sub Exec(script As String)
 
-10        On Error GoTo Err_Proc
+    On Error GoTo Err_Proc
 
-20        Debug.Print Me.Name & " Exec"
-30        Debug.Print , "This is found in Form_Timer: Set doc = Me.browserControl.Object.Document"
-40        Debug.Print , "Me.browserControl.Name = " & Me.browserControl.Name
-50        Debug.Print , "Me.browserControl.Object.Name = " & Me.browserControl.Object.Name
-60        Debug.Print , "Me.browserControl.Object.Document.Name = " & Me.browserControl.Object.Document.Name
-70        doc.parentWindow.ExecScript script
-80        Debug.Print , "Me.browserControl.Object.Name = " & Me.browserControl.Object.Name
+    Debug.Print Me.Name & " Exec"
+    Debug.Print , "This is found in Form_Timer: Set doc = Me.browserControl.Object.Document"
+    Debug.Print , "Me.browserControl.Name = " & Me.browserControl.Name
+    Debug.Print , "Me.browserControl.Object.Name = " & Me.browserControl.Object.Name
+    Debug.Print , "Me.browserControl.Parent.Name = " & Me.browserControl.Object.Parent.Name
+    doc.parentWindow.ExecScript script
 
 Exit_Proc:
-90        Exit Sub
+    Exit Sub
 
 Err_Proc:
-100       MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure Exec of " & Me.Name
-110       Resume Exit_Proc
-120       Resume
+    MsgBox "Erl=" & Erl & " Error " & Err.Number & " (" & Err.Description & ") in procedure Exec of " & Me.Name
+    Resume Exit_Proc
+    Resume
 End Sub
 
 Public Property Get jsBembData() As String
